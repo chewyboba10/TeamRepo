@@ -12,7 +12,6 @@
   <h1>Project Plan</h1>
   <p>Create a 4S Ranch/Del Sur Geoguesser with a leaderboard</p> 
 </div>
-</html>
 
 <div class="container">
     <h3>Inspiration</h3>
