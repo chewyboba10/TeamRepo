@@ -74,7 +74,7 @@ nav{
    align-items: center;
 }
 nav img{
-   width: 50px;
+   width: 50%;
 }
 /*fixing the size of the logo*/
 .nav-links{
