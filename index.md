@@ -1,6 +1,6 @@
 <!--Start of Website Content-->
 <div class="index-header">
-    <h1>Team Repo</h1>
+    <h1>RAMEN KJ</h1>
     <p>4S Ranch/Del Sur Geoguesser</p>
 </div>
 
