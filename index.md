@@ -11,15 +11,15 @@
     <p>description of the team</p>
     <div class="row">
         <div class="team-col">
-            <h1>Evan Aparri<a href="https://github.com/chewyboba10"></a></h1>
+            <h3>Evan Aparri<a href="https://github.com/chewyboba10"></a></h3>
             <p>Position</p>
         </div>
         <div class="team-col">
-            <h1>Nathan Kim<a href="https://github.com/nsk1207"></h1>
+            <h3>Nathan Kim<a href="https://github.com/nsk1207"></a></h3>
             <p>Position</p>
         </div>
         <div class="team-col">
-            <h1>Max Wu<a href="https://github.com/mmaxwu"></h1>
+            <h3>Max Wu<a href="https://github.com/mmaxwu"></a></h3>
             <p>Position</p>
         </div>
     </div>
@@ -27,19 +27,19 @@
 <section class="team1">
 <div class="row">
     <div class="team-col">
-        <h1>Ryan Hakimipour<a href="https://github.com/RyanHaki"></a></h1>
+        <h3>Ryan Hakimipour<a href="https://github.com/RyanHaki"></a></h3>
         <p>Position</p>
     </div>
     <div class="team-col">
-        <h1>Aniket Chakradeo<a href="https://github.com/AniCricKet"></a></h1>
+        <h3>Aniket Chakradeo<a href="https://github.com/AniCricKet"></a></h3>
         <p>Position</p>
     </div>
     <div class="team-col">
-        <h1>Kalani Cabral-Omana<a href="https://github.com/kalanicabralomana"></a></h1>
+        <h3>Kalani Cabral-Omana<a href="https://github.com/kalanicabralomana"></a></h3>
         <p>Position</p>
     </div>
     <div class="team-col">
-        <h1>Jaden Nguyen<a href="https://github.com/raisinbran25"></a></h1>
+        <h3>Jaden Nguyen<a href="https://github.com/raisinbran25"></a></h3>
         <p>Position</p>
     </div>
 </div>
