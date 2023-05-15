@@ -4,7 +4,6 @@
     <p>4S Ranch/Del Sur Geoguesser</p>
 </div>
 
-
 <!--About Our Team-->
 <section class="team">
     <h1>CONTRIBUTORS</h1>
