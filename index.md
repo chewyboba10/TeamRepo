@@ -1,46 +1,22 @@
-<!--Start of Website Content-->
-<div class="index-header">
-    <h1>Team Repo</h1>
-    <p>4S Ranch/Del Sur Geoguesser</p>
-</div>
-
-
-<!--About Our Team-->
-<section class="team">
-    <h1>CONTRIBUTORS</h1>
-    <p>description of the team</p>
-    <div class="row">
-        <div class="team-col">
-            <h3>Evan Aparri<a href="https://github.com/chewyboba10"></a></h3>
-            <p>Position</p>
-        </div>
-        <div class="team-col">
-            <h3>Nathan Kim<a href="https://github.com/nsk1207"></a></h3>
-            <p>Position</p>
-        </div>
-        <div class="team-col">
-            <h3>Max Wu<a href="https://github.com/mmaxwu"></a></h3>
-            <p>Position</p>
-        </div>
-    </div>
-</section>
-<section class="team1">
-<div class="row">
-    <div class="team-col">
-        <h3>Ryan Hakimipour<a href="https://github.com/RyanHaki"></a></h3>
-        <p>Position</p>
-    </div>
-    <div class="team-col">
-        <h3>Aniket Chakradeo<a href="https://github.com/AniCricKet"></a></h3>
-        <p>Position</p>
-    </div>
-    <div class="team-col">
-        <h3>Kalani Cabral-Omana<a href="https://github.com/kalanicabralomana"></a></h3>
-        <p>Position</p>
-    </div>
-    <div class="team-col">
-        <h3>Jaden Nguyen<a href="https://github.com/raisinbran25"></a></h3>
-        <p>Position</p>
-    </div>
-</div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4S Ranch Geoguesser</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body style="background-color: #f4faf8;">
+    <div class="menuText bounce" style="top: 235px;" onclick="window.location = './game.html'">PLAY</div>
+    <div class="menuText bounce" style="top: 340px;">STATS</div>
+    <div class="menuText bounce" style="top: 445px;" onclick="window.location = ''">TUTORIAL</div>
+    <div class="menuText bounce" style="top: 550px;" onclick="window.location = './leaderboard.html'">LEADERBOARD</div>
+    <img src = "./assets/svg/logo.svg" id="logo" width = "392" class = "home" style="top: 13px; left: 40px; opacity: 1;">
+    <img src = "./assets/svg/profile.svg" id="profile" width = "80" height = "80" class = "home" style="top: 20px; left: 1436px; opacity: 1;">
+    <div class="menuText bounce" style="top: 40px; left: 1175px;" onclick="window.location = './register.html'">SIGN IN</div>
+    <img src = "./assets/svg/indexPhotos.svg" id="photos" width = "640" height = "640" class = "home" style="top: 112px; left: 775px; opacity: 1;">
+    <img src = "./assets/svg/exit.svg" id="photos" width = "40" height = "40" class = "home" style="top: 801px; left: 1472px; opacity: 1;">
+    <div class="home" style="top: 799px; left: 1278px;">SIGN OUT</div>
+</body>
+</html>
