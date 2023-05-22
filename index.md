@@ -10,7 +10,7 @@
     <p>description of the team</p>
     <div class="row">
         <div class="team-col">
-            <h1><a href="https://github.com/chewyboba10"><img src ="https://avatars.githubusercontent.com/u/111486836?v=4"></img></a></h1>
+            <h1><a href="https://github.com/chewyboba10"><img src ="https://avatars.githubusercontent.com/u/111486836?v=4"></a></h1>
             <h3>Evan Aparri</h3>
             <p>Position</p>
         </div>
