@@ -21,7 +21,7 @@
         </div>
         <div class="team-col">
             <h3>Max Wu<a href="https://github.com/mmaxwu"></a></h3>
-            <img src="images/team/clairez.png" alt="Max">
+            <!-- <img src="images/team/clairez.png" alt="Max"> -->
             <p>Position</p>
         </div>
     </div>
