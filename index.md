@@ -30,7 +30,7 @@
 <div class="row">
     <div class="team-col">
         <h3>Ryan Hakimipour<a href="https://github.com/RyanHaki"></a></h3>
-        <img src="images/team/luna.png" alt="Rran">
+        <!-- <img src="images/team/luna.png" alt="Rran"> -->
         <p>Position</p>
     </div>
     <div class="team-col">
