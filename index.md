@@ -11,7 +11,7 @@
     <div class="row">
         <div class="team-col">
             <h3>Evan Aparri<a href="https://github.com/chewyboba10"></a></h3>
-            <img src="images/team/annika.png" alt="evan">
+            <!-- <img src="images/team/annika.png" alt="evan"> -->
             <p>Position</p>
         </div>
         <div class="team-col">
