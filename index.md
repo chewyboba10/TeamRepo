@@ -30,7 +30,7 @@
         <p>Position</p>
     </div>
     <div class="team-col">
-        <h3>Aniket Chakradeo<a href="https://github.com/AniCricKet"></a></h3>
+        <h3>Aniket</p>
         <p>Position</p>
     </div>
     <div class="team-col">
