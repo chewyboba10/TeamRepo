@@ -15,13 +15,13 @@
             <p>Position</p>
         </div>
         <div class="team-col">
-            <h1></h1>
-            <h3>Nathan Kim<a href="https://github.com/nsk1207"></a></h3>
+            <h1><a href="https://github.com/nsk1207"><img src ="https://avatars.githubusercontent.com/u/111671962?v=4"></a></h1>
+            <h3>Nathan Kim</h3>
             <p>Position</p>
         </div>
         <div class="team-col">
-            <h1></h1>
-            <h3>Max Wu<a href="https://github.com/mmaxwu"></a></h3>
+            <h1><a href="https://github.com/mmaxwu"><img src ="https://avatars.githubusercontent.com/u/111472429?v=4"></a></h1>
+            <h3>Max Wu</h3>
             <p>Position</p>
         </div>
     </div>
@@ -29,23 +29,23 @@
 <section class="team1">
 <div class="row">
     <div class="team-col">
-        <h1></h1>
-        <h3>Ryan Hakimipour<a href="https://github.com/RyanHaki"></a></h3>
+        <h1><a href="https://github.com/RyanHaki"><img src ="https://avatars.githubusercontent.com/u/111466991?v=4"></a></h1>
+        <h3>Ryan Hakimipour</h3>
         <p>Position</p>
     </div>
     <div class="team-col">
-        <h1></h1>
-        <h3>Aniket Chakradeo<a href="https://github.com/AniCricKet"></a></h3>
+        <h1><a href="https://github.com/AniCricKet"><img src ="https://avatars.githubusercontent.com/u/91163802?v=4"></a></h1>
+        <h3>Aniket Chakradeo</h3>
         <p>Position</p>
     </div>
     <div class="team-col">
-        <h1></h1>
-        <h3>Kalani Cabral-Omana<a href="https://github.com/kalanicabralomana"></a></h3>
+        <h1><a href="https://github.com/kalanicabralomana"><img src ="https://avatars.githubusercontent.com/u/111479439?v=4"></a></h1>
+        <h3>Kalani Cabral-Omana</h3>
         <p>Position</p>
     </div>
     <div class="team-col">
-        <h1></h1>
-        <h3>Jaden Nguyen<a href="https://github.com/raisinbran25"></a></h3>
+        <h1><a href="https://github.com/raisinbran25"><img src ="https://avatars.githubusercontent.com/u/83891698?v=4"></a></h1>
+        <h3>Jaden Nguyen</h3>
         <p>Position</p>
     </div>
 </div>
