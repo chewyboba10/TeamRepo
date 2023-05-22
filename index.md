@@ -16,7 +16,7 @@
         </div>
         <div class="team-col">
             <h3>Nathan Kim<a href="https://github.com/nsk1207"></a></h3>
-            <img src="images/team/clairec.png" alt="nathan">
+            <!-- <img src="images/team/clairec.png" alt="nathan"> -->
             <p>Position</p>
         </div>
         <div class="team-col">
