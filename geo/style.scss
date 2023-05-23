@@ -1,0 +1,54 @@
+$colorx: green;
+$colory: red;
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 704px;
+    height: 704px;
+}
+.cell1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 352px;
+    height: 352px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.cell2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 702px;
+    height: 702px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.cell3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0px;
+    height: 0px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
