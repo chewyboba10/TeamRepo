@@ -72,24 +72,39 @@
       <th onclick="sortTable(2)">Time</th>
     </tr>
     <tr>
-      <td>John</td>
+      <td>Ryan</td>
       <td>1000</td>
       <td>00:45</td>
     </tr>
     <tr>
-      <td>Jane</td>
+      <td>Aniket</td>
       <td>800</td>
       <td>01:15</td>
     </tr>
     <tr>
-      <td>Mark</td>
+      <td>Max</td>
       <td>650</td>
       <td>00:55</td>
     </tr>
     <tr>
-      <td>Sarah</td>
+      <td>Evan</td>
       <td>500</td>
       <td>01:21</td>
+    </tr>
+    <tr>
+      <td>Nathan</td>
+      <td>650</td>
+      <td>00:47</td>
+    </tr>
+    <tr>
+      <td>Kalani</td>
+      <td>0</td>
+      <td>10:32</td>
+    </tr>
+    <tr>
+      <td>Jaden</td>
+      <td>1100</td>
+      <td>00:31</td>
     </tr>
   </table>
 
