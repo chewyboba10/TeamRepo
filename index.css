@@ -78,6 +78,7 @@ nav img{
 }
 img{
    border-radius: 50%;
+   width: 150px;
 }
 /*fixing the size of the logo*/
 .nav-links{
