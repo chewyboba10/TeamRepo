@@ -2,23 +2,62 @@
 <head>
   <title>GeoGuessr Leaderboard</title>
   <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-      cursor: pointer;
-    }
-    tr:hover {
-      background-color: #f5f5f5;
-    }
+  * {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  h1 {
+    font-size: 32pt;
+    text-align: center;
+    margin-top: 40px;
+  }
+  table.board {
+    font-size: 13pt;
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-top: 40px;
+    width: 75%;
+  }
+  .board thead tr {
+    font-size: 17pt;
+    font-weight: bold;
+    background-color: #246186;
+    color: #ffffff;
+    text-align: left;
+  }
+  .board td {
+    text-align: center;
+    padding: 12px 15px;
+    border: none;
+    height: 50px;
+  }
+  .board tr {
+    font-weight: bold;
+    border: none;
+    transition-duration: 0.3s;
+    color: #0a2f47;
+    background-color: #58a4d3;
+    border-bottom: 4px solid #2b8bc6;
+    width: 50%;
+  }
+  .board tr:hover {
+    color: #ffffff;
+    background-color: #246186;
+  }
+  #container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #dots {
+    margin-top: -60px;
+    margin-bottom: -35px;
+    font-size: 60pt;
+    color: #f1cc0c;
+    opacity: 0.5;
+  }
   </style>
+  
   <script>
     function sortTable(n) {
       var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
