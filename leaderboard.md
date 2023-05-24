@@ -100,7 +100,6 @@
 </head>
 <body>
   <h1>Ramen KJ GeoGuesser Leaderboard</h1>
-  
   <table id="leaderboardTable">
     <tr>
       <th onclick="sortTable(0)">Username</th>
@@ -143,6 +142,5 @@
       <td>00:31</td>
     </tr>
   </table>
-
 </body>
 </html>
