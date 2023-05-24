@@ -24,8 +24,10 @@
     <ul class="list-group">
       <li class="list-group-item">Browser Support − It is supported by all popular browsers.o</li>
       <li class="list-group-item">Bootstrap's responsive CSS adjusts to Desktops, Tablets and Mobiles.</li>
-      <li class="list-group-item">Maintaining consistency among projects when using multiple developer teams</li>
+      <li class="list-group-item">Maintainsdaing consistency among projects when using multiple developer teams</li>
     </ul>
+     <h2>Why use Bootstrap</h2>
+      <h2>Why use Bootstrap</h2>
 </div>
 
 <br>
@@ -35,7 +37,7 @@
     <p>There are 2 ways to get started with Bootstrap</p>
     <p><b>1. Bootstrap CDN</b></p>
     <!-- CSS -->
-    <p>Copy paste the stylesheet into &lt;head&gt; to load all css</p>
+    <p>Copy paste the stylesheet intosd &lt;head&gt; to load all css</p>
       <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;</code></pre>
     <p>Many components require JavaScript pluggins such as jQuery, Popper,js to function. Put this in a &lt;body&gt; tag</p>
       <pre><code>&lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
