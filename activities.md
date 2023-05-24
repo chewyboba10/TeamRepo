@@ -17,7 +17,7 @@
     <img src="/images/coram-ranch-bocce.webp" alt="Bocce" style="width:100%">
   </div>
    <div class="column">
-    <img src="/images/coram-ranch-pool.webp" alt="Pool" style="width:100%">
+    <img src="/images/coram-ranch-sdpool.webp" alt="Pool" style="width:100%">
   </div>
 </div>
 
