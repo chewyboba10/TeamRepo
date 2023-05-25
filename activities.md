@@ -2,7 +2,7 @@
 > Group events will occur each afternoon. These are intended to explore local area attractions and build family bonds through a concept like Geoguesser.
 
 ### Tuesday Morning
->  Games by Johnner andggg family.  Volleyball, Basketball, and Swimming have been generational sports for the Leuck's.  Early Leuck outings were to Tyler Texas and swimming was an all afternoon event.  At one time, almost all the Leuck's were in Eugene Oregon and many holidays were spent at the Danebo Church playing ball. Later their were reunions at Silver Creek Falls, Mexico, and Wenatchee. So in Leuck trhhhhnmllkmadition, the morning will start with sports and of course socializing.  The theme of the 1st sports activity day will be: play, socialize, eat, rinse, and repeat.jummuiki
+>  Games by Johnner andggg family.  Volleyball, Basketball, and Swimming have been generational sports for the Leuck's.  Early Leuck outings were to Tyler Texas and swimming was an all afternoon event.  At one time, almost all the Leuck's were in Eugene Oregon and many holidays were spent at the Danebo Church playing ball. Later their were reunions at Silver Creek Falls, Mexico, and Wenatchee. So in Leuck trhhhhnmllkmadition, the morning will start with sports and of course socializing.  The theme of the 1st sports activity day will be: play, socialize, eat, rinse, and repeat.jummuiki                                        l;p[]
 - The facility has a field and Volleyball net
 - Half-Court basketball
 - Bocce Ball
@@ -17,7 +17,7 @@
     <img src="/images/coram-ranch-bocce.webp" alt="Bocce" style="width:100%">
   </div>
    <div class="column">
-    <img src="/images/coram-ranch-pool.webp" alt="Pool" style="width:100%">
+    <img src="/images/coram-ranch-sdpool.webp" alt="Pool" style="width:100%">
   </div>
 </div>
 

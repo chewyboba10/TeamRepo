@@ -59,14 +59,28 @@
           x = rows[i].getElementsByTagName("TD")[n];
           y = rows[i + 1].getElementsByTagName("TD")[n];
           if (dir === "asc") {
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-              shouldSwitch = true;
-              break;
+            if (n === 1) {
+              if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+                shouldSwitch = true;
+                break;
+              }
+            } else {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
             }
           } else if (dir === "desc") {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-              shouldSwitch = true;
-              break;
+            if (n === 1) {
+              if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+                shouldSwitch = true;
+                break;
+              }
+            } else {
+              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
             }
           }
         }
@@ -86,7 +100,6 @@
 </head>
 <body>
   <h1>Ramen KJ GeoGuesser Leaderboard</h1>
-  
   <table id="leaderboardTable">
     <tr>
       <th onclick="sortTable(0)">Username</th>
@@ -129,6 +142,5 @@
       <td>00:31</td>
     </tr>
   </table>
-
 </body>
 </html>
