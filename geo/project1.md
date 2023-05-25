@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="./style.css" />
@@ -16,7 +17,6 @@
   </div>
 </body>
 <script>
-
   avals = {
     "aa": [0,0],
     "ab": [702,0],
@@ -35,25 +35,36 @@
     "dc": [1404,2106],
     "dd": [2106,2106]
   }
-
-  places = {
-    "stoneranch1": ["dc", 502, 344],
-    "watertower": ["ba", 456, 501],
-    "koala": ["dd", 22, 456],
-    "dnhsparking": ["da", 167, 293]
-  }
-  
-  lid = ""
-
+  places = [
+    ["stoneranch", "dc", 502, 344],
+    ["watertower", "ba", 456, 501],
+    ["koala", "dd", 22, 456],
+    ["dnhsparking", "da", 167, 293]
+  ]
+  pid = "" // pin id
+  locx = 0 // location x value
+  locy = 0 //location y value
+  locname = ""
     letters = ["a", "b", "c", "d"]
-
-    i = 0
-    while (i < 4) {
-      val = "url('" + letters[i] + ".png')"
-      document.getElementById(letters[i]).style.backgroundImage = val
-      i += 1
-    }
-
+    function initialize() {
+      i = 0
+      while (i < 4) {
+        val = "url('" + letters[i] + ".png')"
+        document.getElementById(letters[i]).style.backgroundImage = val
+        i += 1
+      }
+      //pick random place
+      j = Math.floor(Math.random() * (places.length - 1));
+      locname = places[j][0]
+      lid = places[j][1]
+      locx = places[j][2] + avals[lid][0]
+      locy = places[j][3] + avals[lid][1]
+      console.log(locname)
+      console.log(lid)
+      console.log(locx)
+      console.log(locy)
+    } 
+    initialize()
     function button(id) {
         i = 0
         j = 0
@@ -70,7 +81,7 @@
         }
         else {
             x = document.getElementById(String(id)).innerHTML
-            lid = x
+            pid = x //pin id is set to smallest square division
             while (i < 4) {    
                 document.getElementById(letters[i]).remove()
                 i += 1
@@ -79,28 +90,18 @@
             document.getElementById("e").style.backgroundImage = "url('r" + x + ".png')"
         }
     }
-
     function pin() {
         var eCell = document.getElementById("e");
         eCell.addEventListener("click", getPosition);
     }
-
     function getPosition(event) {
-      spotx = 1886
-      spoty = 2402
       var eCell = document.getElementById("e");
-      var eRect = eCell.getBoundingClientRect();
-      
+      var eRect = eCell.getBoundingClientRect();     
       var x = event.clientX - eRect.left;
       var y = event.clientY - eRect.top;
-
-      diffx = Math.abs(spotx - (x + avals[lid][0]))
-      diffy = Math.abs(spoty - (y + avals[lid][1]))
-
-      dist = Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589
-      
-      // Use the relative x and y coordinates as needed
-      console.log("Relative Cursor position to cell 'e' - X: " + x + ", Y: " + y);
+      diffx = Math.abs(locx - (x + avals[pid][0]))
+      diffy = Math.abs(locy - (y + avals[pid][1]))
+      dist = Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589      
       console.log("distance: " + String(dist) + " meters")
     }
 
