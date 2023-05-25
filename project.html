@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./geo/style.css" />
   <title>geoguessr</title>
 </head>
 <body>
@@ -13,7 +13,8 @@
       <div class="cell1" id="d" onclick="button('d')">d</div>
       <div class="cell3" id="e" onclick="pin()"></div>
     </div>
-    <div class="cell3" id="picture"></div>
+    <div class="cell4" id="picture"></div>
+    <div id="text"></div>
   </div>
 </body>
 <script>
@@ -54,7 +55,7 @@
     function initialize() {
       i = 0
       while (i < 4) {
-        val = "url('" + letters[i] + ".png')"
+        val = "url('geo/" + letters[i] + ".png')"
         document.getElementById(letters[i]).style.backgroundImage = val
         i += 1
       }
@@ -65,6 +66,9 @@
       lid = places[j][1]
       locx = places[j][2] + avals[lid][0]
       locy = places[j][3] + avals[lid][1]
+
+      document.getElementById("picture").style.backgroundImage = "url('geo/" + locname + ".png')"
+      console.log(document.getElementById("picture").style.backgroundImage)
 
       console.log(locname)
       console.log(lid)
@@ -83,7 +87,7 @@
                 i += 1
             }
             while (j < 4) {
-              document.getElementById(letters[j]).style.backgroundImage = "url('" + String(document.getElementById(letters[j]).innerHTML) + ".png')"
+              document.getElementById(letters[j]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[j]).innerHTML) + ".png')"
               console.log(document.getElementById(letters[j]).style.backgroundImage)
               j += 1
             }
@@ -96,7 +100,7 @@
                 i += 1
             }
             document.getElementById("e").className = "cell2"
-            document.getElementById("e").style.backgroundImage = "url('r" + x + ".png')"
+            document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')"
         }
     }
 
@@ -115,9 +119,10 @@
       diffx = Math.abs(locx - (x + avals[pid][0]))
       diffy = Math.abs(locy - (y + avals[pid][1]))
 
-      dist = Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589
+      dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589)
       
       console.log("distance: " + String(dist) + " meters")
+      document.getElementById("text").innerHTML = "you were " + String(dist) + " meters from the location"
     }
 
 
