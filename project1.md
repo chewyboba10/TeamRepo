@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="geo/style.css" />
   <title>geoguessr</title>
 </head>
 <body>
