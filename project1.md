@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
     <link rel="stylesheet" href="./style.css" />
   <title>geoguessr</title>
@@ -104,7 +102,5 @@
       dist = Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589      
       console.log("distance: " + String(dist) + " meters")
     }
-
-
 </script>
-</html>
+
