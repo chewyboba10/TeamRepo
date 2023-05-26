@@ -109,39 +109,91 @@
 </script>
 </html>
 
+<html>
+<head>
+  <title>Stopwatch</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #333;
+    }
+    #timer {
+      font-size: 48px;
+      margin-top: 20px;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stopwatch</h1>
+  <div id="timer">00:00:00</div>
+  <button id="startButton">Start</button>
+  <button id="stopButton">Stop</button>
+  <button id="resetButton">Reset</button>
 
-<html lang = "en">
-    <head>
-        <title>Stopwatch</title>
-    </head>
-    <body>
-        <div>Seconds: <span id="time">0</span></div>
-        <input type="button" id="startTimer" value="Start Timer" onclick="start();"><br/>
-        <input type="button" id="stopTimer" value="Stop Timer"  onclick="stop();"><br/>
-        <input type="button" id="resetTimer" value="Reset Timer"  onclick="reset();"><br/>
-        <script>
-            var timeElapsed = 0;
-            var timerID = -1;
-            function tick() {
-                timeElapsed++
-                document.getElementById("time").innerHTML = timeElapsed;
-            }
-            function start() {
-                if(timerID == -1){
-                    timerID = setInterval(tick, 1000);
-                }
-            }
-            function stop() {
-                if(timerID != -1){
-                    clearInterval(timerID)
-                    timerID = -1
-                }
-            }
-            function reset() {
-                stop();
-                timeElapsed = -1;
-                tick()
-            }
-        </script>
-    </body>
+  <script>
+    var startTime;
+    var elapsedTime = 0;
+    var timerInterval;
+
+    function startTimer() {
+      startTime = Date.now() - elapsedTime;
+      timerInterval = setInterval(updateTimer, 10);
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      elapsedTime = 0;
+      updateTimer();
+    }
+
+    function updateTimer() {
+      var currentTime = Date.now();
+      elapsedTime = currentTime - startTime;
+      var formattedTime = formatTime(elapsedTime);
+      document.getElementById("timer").textContent = formattedTime;
+    }
+
+    function formatTime(time) {
+      var milliseconds = Math.floor(time % 1000 / 10);
+      var seconds = Math.floor(time / 1000 % 60);
+      var minutes = Math.floor(time / 60000 % 60);
+      var hours = Math.floor(time / 3600000 % 24);
+
+      return (
+        pad(hours, 2) + ":" +
+        pad(minutes, 2) + ":" +
+        pad(seconds, 2) + ":" +
+        pad(milliseconds, 2)
+      );
+    }
+
+    function pad(value, width) {
+      var padding = "";
+      while (padding.length < width - 1 && value < Math.pow(10, width - padding.length - 1)) {
+        padding += "0";
+      }
+      return padding + value.toString();
+    }
+
+    document.getElementById("startButton").addEventListener("click", startTimer);
+    document.getElementById("stopButton").addEventListener("click", stopTimer);
+    document.getElementById("resetButton").addEventListener("click", resetTimer);
+
+    // Start the timer immediately when the page is loaded
+    startTimer();
+  </script>
+</body>
 </html>
+
