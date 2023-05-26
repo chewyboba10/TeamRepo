@@ -108,3 +108,40 @@
 
 </script>
 </html>
+
+
+<html lang = "en">
+    <head>
+        <title>Stopwatch</title>
+    </head>
+    <body>
+        <div>Seconds: <span id="time">0</span></div>
+        <input type="button" id="startTimer" value="Start Timer" onclick="start();"><br/>
+        <input type="button" id="stopTimer" value="Stop Timer"  onclick="stop();"><br/>
+        <input type="button" id="resetTimer" value="Reset Timer"  onclick="reset();"><br/>
+        <script>
+            var timeElapsed = 0;
+            var timerID = -1;
+            function tick() {
+                timeElapsed++
+                document.getElementById("time").innerHTML = timeElapsed;
+            }
+            function start() {
+                if(timerID == -1){
+                    timerID = setInterval(tick, 1000);
+                }
+            }
+            function stop() {
+                if(timerID != -1){
+                    clearInterval(timerID)
+                    timerID = -1
+                }
+            }
+            function reset() {
+                stop();
+                timeElapsed = -1;
+                tick()
+            }
+        </script>
+    </body>
+</html>
