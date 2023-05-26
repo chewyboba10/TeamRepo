@@ -2,6 +2,11 @@
     <link rel="stylesheet" href="./geo/style.css" />
   <title>geoguessr</title>
 </head>
+<h1>Stopwatch</h1>
+  <div id="timer">00:00:00</div>
+  <button id="startButton">Start</button>
+  <button id="stopButton">Stop</button>
+  <button id="resetButton">Reset</button>
 <body>
   <div class="container">
     <div class="board" id="board">
@@ -38,13 +43,6 @@
     }
   </style>
 </head>
-
-<body>
-  <h1>Stopwatch</h1>
-  <div id="timer">00:00:00</div>
-  <button id="startButton">Start</button>
-  <button id="stopButton">Stop</button>
-  <button id="resetButton">Reset</button>
 
   <script>
     var startTime;
