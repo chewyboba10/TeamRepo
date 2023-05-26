@@ -139,7 +139,6 @@
 
 </script>
 
-<!DOCTYPE html>
 <html>
 <head>
   <title>Stopwatch</title>
@@ -162,6 +161,7 @@
     }
   </style>
 </head>
+
 <body>
   <h1>Stopwatch</h1>
   <div id="timer">00:00:00</div>
