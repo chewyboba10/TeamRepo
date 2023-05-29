@@ -1,10 +1,11 @@
 <head>
     <link rel="stylesheet" href="./geo/style.css" />
-  <title>geoguessr</title>
+  <title>GeoGuesser</title>
 </head>
 <body>
-  <div id="start">Welcome to geoguessr, click play to begin!</div>
-  <button class="button" id="button" onclick="initialize()">play</button>
+  <div id="start">Welcome to GeoGuesser, Click Play To Begin!</div>
+  <button class="button" id="button" onclick="initialize()" style="background-color: #4caf50; color: white; padding: 12px 24px; font-size: 20px; border: none; border-radius: 6px;
+  cursor: pointer; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">PLAY</button>
   <div class="container">
     <div class="board" id="board">
       <div class="cell3" id="a" onclick="button('a')">a</div>
