@@ -3,6 +3,8 @@
   <title>GeoGuesser</title>
   <style>
     .button {
+      justify-content: center;
+      align-items: center;
       background-color: #4169E1;
       color: white;
       padding: 12px 24px;
@@ -14,11 +16,9 @@
       display: block; 
       margin: 0 auto; 
       transition: background-color 0.3s ease; 
-      justify-content: center;
-      align-items: center;
     }
     .button:hover {
-      background-color: #45a049; 
+      background-color: #6495ED; 
     }
   </style>
 </head>
