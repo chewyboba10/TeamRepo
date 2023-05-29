@@ -3,26 +3,27 @@
   <title>GeoGuesser</title>
   <style>
     .button {
-      background-color: #4caf50;
+      background-color: #4169E1;
       color: white;
       padding: 12px 24px;
       font-size: 20px;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      display: block; /* Center the button */
-      margin: 0 auto; /* Center the button */
-      transition: background-color 0.3s ease; /* Add transition for hover effect */
+      display: block; 
+      margin: 0 auto; 
+      transition: background-color 0.3s ease; 
+      justify-content: center;
+      align-items: center;
     }
     .button:hover {
-      background-color: #45a049; /* Change background color on hover */
+      background-color: #45a049; 
     }
   </style>
 </head>
 <body>
-  <div id="start">Welcome to GeoGuesser, Click Play To Begin!</div>
-  <button class="button" id="button" onclick="initialize()">PLAY</button>
+  <button class="button" id="button" onclick="initialize()">Click To Play</button>
   <div class="container">
     <div class="board" id="board">
       <div class="cell3" id="a" onclick="button('a')">a</div>
