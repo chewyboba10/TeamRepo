@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="geo/style.css" />
+  <title>geoguessr</title>
+</head>
+<body>
+  <div class="container">
+    <div class="board" id="board">
+      <div class="cell1" id="a" onclick="button('a')">a</div>
+      <div class="cell1" id="b" onclick="button('b')">b</div>
+      <div class="cell1" id="c" onclick="button('c')">c</div>
+      <div class="cell1" id="d" onclick="button('d')">d</div>
+      <div class="cell3" id="e" onclick="pin()"></div>
+    </div>
+    <div class="cell3" id="picture"></div>
+  </div>
+
 <html>
 <head>
 <style>
