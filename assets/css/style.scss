@@ -99,32 +99,27 @@ body {
   margin: 0;
   padding: 0;
 }
-
 header {
-  background-color: #000;
+  background-color: #3a2585;
   padding: 20px;
   text-align: center;
 }
-
 .title {
-  color: #FFF;
+  color: #4234c4;
   font-size: 32px;
   margin: 0;
 }
-
 main {
   display: flex;
   align-items: center;
   justify-content: center;
   height: calc(100vh - 140px);
 }
-
 .game-start {
   text-align: center;
 }
-
 .subtitle {
-  color: #000;
+  color: #2943d1;
   font-size: 24px;
   margin: 0;
 }
