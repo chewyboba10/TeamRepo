@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <button class="button" id="button" onclick="initialize()">Click To Play</button>
+  <button class="button" id="button" onclick="promptUsername()">Click To Play</button>
   <div class="container">
     <div class="board" id="board">
       <div class="cell3" id="a" onclick="button('a')">a</div>
@@ -69,6 +69,17 @@
   locy = 0 //location y value
   locname = ""
     letters = ["a", "b", "c", "d"]
+    function promptUsername() {
+      var username = prompt("Enter a username:");
+      if (username !== null && username !== "") {
+        console.log("Username entered:", username);
+      } else {
+    // No username entered or canceled by the user
+    // Handle this case as per your requirements
+      }
+      initialize(); // Call the initialize function to start the game
+}
+
     function initialize() {
       play = 1
       i = 0
