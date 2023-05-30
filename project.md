@@ -8,6 +8,9 @@
       background-image: url('geo/earth.png');
       background-repeat: no-repeat;
       background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
     .button-container {
@@ -32,6 +35,68 @@
 
     .button:hover {
       background-color: #6495ED;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .board {
+      display: flex;
+      flex-wrap: wrap;
+      width: 702px;
+      margin: 0 auto;
+    }
+
+    .cell3 {
+      flex: 0 0 33.33%;
+      height: 234px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .cell1 {
+      flex: 0 0 33.33%;
+      height: 234px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      cursor: pointer;
+    }
+
+    .cell2 {
+      flex: 0 0 33.33%;
+      height: 234px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #picture {
+      width: 100%;
+      height: 234px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-bottom: 20px;
+    }
+
+    #text {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    #bigmap {
+      width: 100%;
+      height: 468px;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
   </style>
 </head>
