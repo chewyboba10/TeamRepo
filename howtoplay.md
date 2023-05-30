@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Neighborhood GeoGuesser</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <header>
@@ -14,7 +14,6 @@
       <h2>Welcome to the Neighborhood GeoGuesser Game!</h2>
       <p>Test your geography skills by identifying various neighborhoods from around the world.</p>
     </section>
-    
     <section class="game-start">
       <h2>Get Started!</h2>
       <p>Click the "Start Game" button below to begin the challenge.</p>
