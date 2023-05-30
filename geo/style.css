@@ -18,7 +18,7 @@
   align-items: center;
   width: 352px;
   height: 352px;
-  font-size: 10px;
+  font-size: 0px;
   font-weight: bold;
   cursor: pointer;
   background-color: black;
@@ -31,7 +31,7 @@
   align-items: center;
   width: 702px;
   height: 702px;
-  font-size: 10px;
+  font-size: 0px;
   font-weight: bold;
   cursor: pointer;
   background-color: black;
@@ -44,7 +44,7 @@
   align-items: center;
   width: 0px;
   height: 0px;
-  font-size: 10px;
+  font-size: 0px;
   font-weight: bold;
   cursor: pointer;
   background-color: black;
@@ -57,7 +57,7 @@
   align-items: center;
   width: 400px;
   height: 300px;
-  font-size: 10px;
+  font-size: 0px;
   font-weight: bold;
   cursor: pointer;
   background-color: black;

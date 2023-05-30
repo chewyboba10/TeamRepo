@@ -108,3 +108,28 @@
 
 </script>
 </html>
+
+<html>
+<head>
+  <title>Stopwatch</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #333;
+    }
+    #timer {
+      font-size: 48px;
+      margin-top: 20px;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+    
