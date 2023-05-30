@@ -4,7 +4,7 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="button" id="button" onclick="initialize()">Click To Play</button>
+  <button class="button" id="button" onclick="promptUsername()">Click To Play</button>
     <button class="button" onclick="reloadPage()">Restart</button>
   </div>
   <div class="container">
@@ -52,6 +52,21 @@
   let locy = 0; //location y value
   let locname = "";
   let letters = ["a", "b", "c", "d"];
+
+  function promptUsername() {
+    var username = prompt("Enter your username:");
+    if (username !== null && username !== "") {
+      // Username is not empty and has been entered
+      // Store the username in a variable or perform any desired actions
+      // For example, you can log the username to the console
+      console.log("Username entered:", username);
+    } else {
+      // No username entered or canceled by the user
+      // Handle this case as per your requirements
+    }
+    initialize(); // Call the initialize function to start the game
+  }
+
   function promptUsername() {
     var username = prompt("Enter your username:");
     if (username !== null && username !== "") {
