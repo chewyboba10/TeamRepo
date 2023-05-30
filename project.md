@@ -22,10 +22,21 @@
     .button:hover {
       background-color: #6495ED; 
     }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .button-container button {
+      margin-left: 10px;
+    }
   </style>
 </head>
 <body>
-  <button class="button" id="button" onclick="initialize()">Click To Play</button>
+  <div class="button-container">
+    <button class="button" id="button" onclick="initialize()">Click To Play</button>
+    <button class="button" onclick="reloadPage()">Restart</button>
+  </div>
   <div class="container">
     <div class="board" id="board">
       <div class="cell3" id="a" onclick="button('a')">a</div>
@@ -37,7 +48,6 @@
     </div>
     <div class="cell3" id="picture"></div>
     <div id="text"></div>
-    <button class="button" onclick="reloadPage()">Restart</button>
   </div>
 </body>
 <script>
