@@ -137,14 +137,12 @@
     "dc": [1404,2106],
     "dd": [2106,2106]
   };
-
   let places = [
     ["stoneranch", "dc", 502, 344],
     ["watertower", "ba", 456, 501],
     ["koala", "dd", 22, 456],
     ["dnhsparking", "da", 167, 293]
   ];
-
   let play = 0;
   let pid1 = ""; //first square pin id to zoom out
   let pid2 = ""; // smallest square pin id
@@ -152,7 +150,6 @@
   let locy = 0; //location y value
   let locname = "";
   let letters = ["a", "b", "c", "d"];
-
   function promptUsername() {
     var username = prompt("Enter your username:");
     if (username !== null && username !== "") {
@@ -166,7 +163,6 @@
     }
     initialize(); // Call the initialize function to start the game
   }
-
   function initialize() {
     play = 1;
     let i = 0;
@@ -176,7 +172,6 @@
       document.getElementById(letters[i]).style.backgroundImage = val;
       i += 1;
     }
-
     //pick random place
     let j = Math.floor(Math.random() * places.length);
     locname = places[j][0];
@@ -186,31 +181,25 @@
     document.getElementById("picture").className = "cell4";
     document.getElementById("picture").style.backgroundImage = "url('geo/" + locname + ".png')";
     document.getElementById("button").remove();
-
     console.log(document.getElementById("picture").style.backgroundImage);
     console.log(locname);
     console.log(lid);
     console.log(locx);
     console.log(locy);
   }
-
   function button(id) {
     if (play == 0 || play == 2) {
       return;
     }
-
     let i = 0;
     let j = 0;
-
     if (document.getElementById("a").innerHTML.length == 1) {
       pid1 = document.getElementById(String(id)).innerHTML;
       console.log(pid1);
-
       while (i < 4) {
         document.getElementById(letters[i]).innerHTML = String(id) + letters[i];
         i += 1;
       }
-
       while (j < 4) {
         document.getElementById(letters[j]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[j]).innerHTML) + ".png')";
         console.log(document.getElementById(letters[j]).style.backgroundImage);
@@ -219,27 +208,22 @@
     } else {
       let x = document.getElementById(String(id)).innerHTML;
       pid2 = x; //pin id is set to smallest square division
-
       while (i < 4) {
         document.getElementById(letters[i]).className = "cell3";
         i += 1;
       }
-
       document.getElementById("e").className = "cell2";
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
   }
-
   function pin() {
     var eCell = document.getElementById("e");
     eCell.addEventListener("click", end);
   }
-
   function end(event) {
     if (play == 0 || play == 2) {
       return;
     }
-
     play = 2;
     var eCell = document.getElementById("e");
     var eRect = eCell.getBoundingClientRect();
@@ -263,7 +247,6 @@
     ctx.strokeStyle = "red";
     ctx.stroke();
   }
-
   function reloadPage() {
     location.reload();
   }
