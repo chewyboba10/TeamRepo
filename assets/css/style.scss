@@ -30,30 +30,37 @@ header {
 .title {
   color: #005CBF;
   font-size: 28px;
+  text-align: center;
 }
 main {
   margin: 40px auto;
   max-width: 600px;
   padding: 0 20px;
+  text-align: center;
 }
 .description {
   margin-bottom: 40px;
+  text-align: center;
 }
 .description h2 {
   color: #005CBF;
   font-size: 24px;
+  text-align: center;
 }
 .description p {
   color: #333;
   font-size: 16px;
+  text-align: center;
 }
 .game-start h2 {
   color: #005CBF;
   font-size: 24px;
+  text-align: center;
 }
 .game-start p {
   color: #333;
   font-size: 16px;
+  text-align: center;
 }
 .start-button {
   background-color: #007BFF;
@@ -62,9 +69,11 @@ main {
   cursor: pointer;
   font-size: 16px;
   padding: 10px 20px;
+  text-align: center;
 }
 .start-button:hover {
   background-color: #0056b3;
+  text-align: center;
 }
 footer {
   background-color: #F0F5FF;
@@ -73,8 +82,10 @@ footer {
   position: fixed;
   text-align: center;
   width: 100%;
+  text-align: center;
 }
 .footer-text {
   color: #333;
   font-size: 14px;
+  text-align: center;
 }

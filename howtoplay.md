@@ -11,7 +11,7 @@
   
   <main>
     <section class="description">
-      <h2>Welcome to the Neighborhood GeoGuesser Game!</h2>
+      <h2>Welcome to the 4s Ranch GeoGuesser Game!</h2>
       <p>Test your geography skills by identifying various neighborhoods from around the world.</p>
     </section>
     <section class="game-start">
