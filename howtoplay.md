@@ -1,31 +1,29 @@
 <html>
-<style>
-    /* Title */
-    .title {
-    font-family: ravie;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    }
-    /* Header */
-    .header {
-    font-family: Georgia, serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: #555;
-    }
-    /* Paragraph Text */
-    .paragraph {
-    font-family: chiller;
-    font-size: 16px;
-    color: #777;
-    line-height: 1.5;
-    }
-</style>
-
-<h1 class="title">EXPLORE THE NEIGHBORHOOD!</h1>
-
-
-
-
+<head>
+  <meta charset="UTF-8">
+  <title>Neighborhood GeoGuesser</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">Neighborhood GeoGuesser</h1>
+  </header>
+  
+  <main>
+    <section class="description">
+      <h2>Welcome to the Neighborhood GeoGuesser Game!</h2>
+      <p>Test your geography skills by identifying various neighborhoods from around the world.</p>
+    </section>
+    
+    <section class="game-start">
+      <h2>Get Started!</h2>
+      <p>Click the "Start Game" button below to begin the challenge.</p>
+      <button class="start-button">Start Game</button>
+    </section>
+  </main>
+  
+  <footer>
+    <p class="footer-text">© 2023 Neighborhood GeoGuesser. All rights reserved.</p>
+  </footer>
+</body>
 </html>

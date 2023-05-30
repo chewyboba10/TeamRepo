@@ -14,3 +14,79 @@
     flex: 33.33%;
     padding: 5px;
   }
+
+// kalanis classes
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  color: #333;
+  font-size: 28px;
+}
+
+main {
+  margin: 40px auto;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.description {
+  margin-bottom: 40px;
+}
+
+.description h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+.description p {
+  color: #666;
+  font-size: 16px;
+}
+
+.game-start h2 {
+  color: #333;
+  font-size: 24px;
+}
+
+.game-start p {
+  color: #666;
+  font-size: 16px;
+}
+
+.start-button {
+  background-color: #4caf50;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  background-color: #f2f2f2;
+  bottom: 0;
+  padding: 10px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-text {
+  color: #666;
+  font-size: 14px;
+}
