@@ -17,6 +17,12 @@
 <html>
 <head>
 <style>
+  tt {
+  font-family:'Futura Std Condensed';
+  margin: auto;
+  padding: 0;
+  color: #005CBF;
+}
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -71,6 +77,8 @@
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+    background-color: #005CBF;
+    color: #005CBF;
   }
   canvas {
     width: 100%;
