@@ -12,13 +12,11 @@
       margin: 0;
       padding: 0;
     }
-
     .button-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
-
     .button {
       justify-content: center;
       align-items: center;
@@ -32,11 +30,9 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s ease;
     }
-
     .button:hover {
       background-color: #6495ED;
     }
-
     .container {
       display: flex;
       flex-direction: column;
@@ -44,14 +40,12 @@
       justify-content: center;
       height: 100vh;
     }
-
     .board {
       display: flex;
       flex-wrap: wrap;
       width: 702px;
       margin: 0 auto;
     }
-
     .cell3 {
       flex: 0 0 33.33%;
       height: 234px;
@@ -62,7 +56,6 @@
       color: white;
       cursor: pointer;
     }
-
     .cell1 {
       flex: 0 0 33.33%;
       height: 234px;
@@ -70,14 +63,12 @@
       background-size: cover;
       cursor: pointer;
     }
-
     .cell2 {
       flex: 0 0 33.33%;
       height: 234px;
       background-repeat: no-repeat;
       background-size: cover;
     }
-
     #picture {
       width: 100%;
       height: 234px;
@@ -85,13 +76,11 @@
       background-size: cover;
       margin-bottom: 20px;
     }
-
     #text {
       font-size: 24px;
       color: white;
       margin-bottom: 20px;
     }
-
     #bigmap {
       width: 100%;
       height: 468px;
