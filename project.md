@@ -4,6 +4,15 @@
   <link rel="stylesheet" href="./geo/style.css" />
   <title>GeoGuesser</title>
   <style>
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      background-image: url('geo/earth.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     .button {
       justify-content: center;
       align-items: center;
@@ -15,20 +24,11 @@
       border-radius: 5px;
       cursor: pointer;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      display: block; 
-      margin: 0 auto; 
-      transition: background-color 0.3s ease; 
+      transition: background-color 0.3s ease;
     }
+
     .button:hover {
-      background-color: #6495ED; 
-    }
-    .button-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .button-container button {
-      margin-left: 10px;
+      background-color: #6495ED;
     }
   </style>
 </head>
@@ -138,7 +138,7 @@
       let x = document.getElementById(String(id)).innerHTML;
       pid2 = x; //pin id is set to smallest square division
 
-      while (i < 4) {    
+      while (i < 4) {
         document.getElementById(letters[i]).className = "cell3";
         i += 1;
       }
@@ -160,24 +160,25 @@
 
     play = 2;
     var eCell = document.getElementById("e");
-    var eRect = eCell.getBoundingClientRect();      
+    var eRect = eCell.getBoundingClientRect();
     var x = event.clientX - eRect.left;
     var y = event.clientY - eRect.top;
     let diffx = Math.abs(locx - (x + avals[pid2][0]));
     let diffy = Math.abs(locy - (y + avals[pid2][1]));
-    let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);      
+    let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);
     console.log("distance: " + String(dist) + " meters");
     document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location";
     document.getElementById("e").className = "cell3";
     document.getElementById("bigmap").className = "cell2";
     document.getElementById("bigmap").style.backgroundImage = "url('geo/bigmap.png')";
-    let c = document.getElementById("bigmap");
-    let ctx = c.getContext("2d");
+    var c = document.getElementById("bigmap");
+    var ctx = c.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(((x + avals[pid2][0]) / 9.36), ((y + avals[pid2][1])) / 18.12);
-    ctx.lineTo(locx / 9.36, locy / 18.12);
+    ctx.arc(x + avals[pid2][0], y + avals[pid2][1], 5, 0, 2 * Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.lineWidth = 3;
     ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
     ctx.stroke();
   }
 
