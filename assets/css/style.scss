@@ -22,48 +22,39 @@ body {
   margin: 0;
   padding: 0;
 }
-
 header {
   background-color: #F0F5FF;
   padding: 20px;
   text-align: center;
 }
-
 .title {
   color: #005CBF;
   font-size: 28px;
 }
-
 main {
   margin: 40px auto;
   max-width: 600px;
   padding: 0 20px;
 }
-
 .description {
   margin-bottom: 40px;
 }
-
 .description h2 {
   color: #005CBF;
   font-size: 24px;
 }
-
 .description p {
   color: #333;
   font-size: 16px;
 }
-
 .game-start h2 {
   color: #005CBF;
   font-size: 24px;
 }
-
 .game-start p {
   color: #333;
   font-size: 16px;
 }
-
 .start-button {
   background-color: #007BFF;
   border: none;
@@ -72,11 +63,9 @@ main {
   font-size: 16px;
   padding: 10px 20px;
 }
-
 .start-button:hover {
   background-color: #0056b3;
 }
-
 footer {
   background-color: #F0F5FF;
   bottom: 0;
@@ -85,7 +74,6 @@ footer {
   text-align: center;
   width: 100%;
 }
-
 .footer-text {
   color: #333;
   font-size: 14px;
