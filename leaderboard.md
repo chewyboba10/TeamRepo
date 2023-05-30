@@ -59,25 +59,25 @@
           x = rows[i].getElementsByTagName("TD")[n];
           y = rows[i + 1].getElementsByTagName("TD")[n];
           if (dir === "asc") {
-            if (n === 1) {
-              if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+            if (n === 0) {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                 shouldSwitch = true;
                 break;
               }
             } else {
-              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
                 shouldSwitch = true;
                 break;
               }
             }
           } else if (dir === "desc") {
-            if (n === 1) {
-              if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+            if (n === 0) {
+              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
                 shouldSwitch = true;
                 break;
               }
             } else {
-              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
                 shouldSwitch = true;
                 break;
               }
@@ -101,46 +101,49 @@
 <body>
   <h1>Ramen KJ GeoGuesser Leaderboard</h1>
   <table id="leaderboardTable">
-    <tr>
-      <th onclick="sortTable(0)">Username</th>
-      <th onclick="sortTable(1)">Score</th>
-      <th onclick="sortTable(2)">Time</th>
-    </tr>
-    <tr>
-      <td>Ryan</td>
-      <td>1000</td>
-      <td>00:45</td>
-    </tr>
-    <tr>
-      <td>Aniket</td>
-      <td>800</td>
-      <td>01:15</td>
-    </tr>
-    <tr>
-      <td>Max</td>
-      <td>650</td>
-      <td>00:55</td>
-    </tr>
-    <tr>
-      <td>Evan</td>
-      <td>500</td>
-      <td>01:21</td>
-    </tr>
-    <tr>
-      <td>Nathan</td>
-      <td>650</td>
-      <td>00:47</td>
-    </tr>
-    <tr>
-      <td>Kalani</td>
-      <td>0</td>
-      <td>10:32</td>
-    </tr>
-    <tr>
-      <td>Jaden</td>
-      <td>1100</td>
-      <td>00:31</td>
-    </tr>
+    <!-- Table will be populated dynamically -->
   </table>
+
+  <script>
+    function getData() {
+      fetch('http://172.22.157.253:8086/api/geoguessr/')
+        .then(response => response.json())
+        .then(data => {
+          const leaderboardTable = document.getElementById("leaderboardTable");
+          leaderboardTable.innerHTML = "";
+
+          const headerRow = document.createElement("tr");
+          const headers = ["Username", "Score", "Time", "Date"]; // Update the headers
+          headers.forEach(header => {
+            const th = document.createElement("th");
+            th.textContent = header;
+            th.setAttribute("onclick", "sortTable(" + headers.indexOf(header) + ")");
+            headerRow.appendChild(th);
+          });
+          leaderboardTable.appendChild(headerRow);
+
+          data.forEach(rowData => {
+            const row = document.createElement("tr");
+            const values = Object.values(rowData).filter((value, index) => index !== 0); // Exclude the first value (id)
+            values.forEach((value, index) => {
+              const cell = document.createElement("td");
+              if (index === values.length - 1) {
+                // Format the date as desired (modify the code below accordingly)
+                const date = new Date(value);
+                const formattedDate = date.toLocaleDateString("en-US");
+                cell.textContent = formattedDate;
+              } else {
+                cell.textContent = value;
+              }
+              row.appendChild(cell);
+            });
+            leaderboardTable.appendChild(row);
+          });
+        })
+        .catch(error => console.error(error));
+    }
+
+    window.addEventListener("load", getData);
+  </script>
 </body>
 </html>
