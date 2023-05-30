@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
   <link rel="stylesheet" href="./geo/style.css" />
   <title>GeoGuesser</title>
@@ -155,4 +153,3 @@
     location.reload();
   }
 </script>
-</html>
