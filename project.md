@@ -1,15 +1,19 @@
+<!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="./geo/style.css" />
   <title>GeoGuesser</title>
   <style>
+    body {
+      background-image: url('geo/earth.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     .button-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
-      background-image: url('geo/earth.png');
-      background-repeat: no-repeat;
-      background-size: cover;
     }
 
     .button {
@@ -33,7 +37,7 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="button" id="button" onclick="promptUsername()">Click To Play</button>
+    <button class="button" id="button" onclick="initialize()">Click To Play</button>
     <button class="button" onclick="reloadPage()">Restart</button>
   </div>
   <div class="container">
