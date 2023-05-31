@@ -33,72 +33,8 @@
     .button:hover {
       background-color: #6495ED;
     }
-
     #text {
       color: #FFFFFF;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .board {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      width: 400px;
-    }
-
-    .cell {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 80px;
-      height: 80px;
-      font-size: 24px;
-      background-color: #FFFFFF;
-      border: 1px solid #CCCCCC;
-    }
-
-    .cell4 {
-      margin-top: 20px;
-      width: 200px;
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid #CCCCCC;
-      transform: translateZ(10px);
-    }
-
-    .cell2 {
-      margin-top: 20px;
-      width: 400px;
-      height: 400px;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid #CCCCCC;
-      transform: translateZ(20px);
-    }
-
-    .cell3 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 80px;
-      height: 80px;
-      font-size: 24px;
-      background-color: #FFFFFF;
-      border: 1px solid #CCCCCC;
-      transform: translateZ(5px);
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateZ(15px);
     }
   </style>
 </head>
@@ -167,6 +103,19 @@
     initialize(); // Call the initialize function to start the game
   }
 
+  function promptUsername() {
+    var username = prompt("Enter your username:");
+    if (username !== null && username !== "") {
+      // Username is not empty and has been entered
+      // Store the username in a variable or perform any desired actions
+      // For example, you can log the username to the console
+      console.log("Username entered:", username);
+    } else {
+      // No username entered or canceled by the user
+      // Handle this case as per your requirements
+    }
+    initialize(); // Call the initialize function to start the game
+  }
   function initialize() {
     play = 1;
     let i = 0;
@@ -191,7 +140,6 @@
     console.log(locx);
     console.log(locy);
   }
-
   function button(id) {
     if (play == 0 || play == 2) {
       return;
@@ -221,12 +169,10 @@
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
   }
-
   function pin() {
     var eCell = document.getElementById("e");
     eCell.addEventListener("click", end);
   }
-
   function end(event) {
     if (play == 0 || play == 2) {
       return;
@@ -254,9 +200,7 @@
     ctx.strokeStyle = "red";
     ctx.stroke();
   }
-
   function reloadPage() {
     location.reload();
   }
 </script>
-</html>
