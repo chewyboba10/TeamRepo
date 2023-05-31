@@ -52,7 +52,7 @@
                     scoreCell.textContent = entry.score;
                     row.appendChild(scoreCell);
                     var dateCell = document.createElement('td');
-                    var date = new Date(entry.game_datetime);
+                    var date = new Date(Date.parse(entry.game_datetime));
                     dateCell.textContent = date.toLocaleDateString();
                     row.appendChild(dateCell);
                     tableBody.appendChild(row);
