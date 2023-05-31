@@ -34,7 +34,7 @@
       background-color: #6495ED;
     }
     #text {
-      color: #eb6b34;
+      color: #FFFFFF;
     }
   </style>
 </head>
