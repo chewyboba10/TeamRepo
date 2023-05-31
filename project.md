@@ -103,19 +103,6 @@
     initialize(); // Call the initialize function to start the game
   }
 
-  function promptUsername() {
-    var username = prompt("Enter your username:");
-    if (username !== null && username !== "") {
-      // Username is not empty and has been entered
-      // Store the username in a variable or perform any desired actions
-      // For example, you can log the username to the console
-      console.log("Username entered:", username);
-    } else {
-      // No username entered or canceled by the user
-      // Handle this case as per your requirements
-    }
-    initialize(); // Call the initialize function to start the game
-  }
   function initialize() {
     play = 1;
     let i = 0;
@@ -140,6 +127,7 @@
     console.log(locx);
     console.log(locy);
   }
+
   function button(id) {
     if (play == 0 || play == 2) {
       return;
@@ -169,10 +157,12 @@
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
   }
+
   function pin() {
     var eCell = document.getElementById("e");
     eCell.addEventListener("click", end);
   }
+
   function end(event) {
     if (play == 0 || play == 2) {
       return;
@@ -185,8 +175,10 @@
     let diffx = Math.abs(locx - (x + avals[pid2][0]));
     let diffy = Math.abs(locy - (y + avals[pid2][1]));
     let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);
+    let points = calculatePoints(dist);
     console.log("distance: " + String(dist) + " meters");
-    document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location";
+    console.log("points: " + String(points));
+    document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location. Points: " + String(points);
     document.getElementById("e").className = "cell3";
     document.getElementById("bigmap").className = "cell2";
     document.getElementById("bigmap").style.backgroundImage = "url('geo/bigmap.png')";
@@ -200,7 +192,29 @@
     ctx.strokeStyle = "red";
     ctx.stroke();
   }
+
+  function calculatePoints(distance) {
+    const basePoints = 1000;
+    const maxDistance = 5000; // maximum distance for full points
+    const minDistance = 100; // minimum distance for any points
+
+    if (distance <= minDistance) {
+      return basePoints;
+    }
+
+    if (distance >= maxDistance) {
+      return 0;
+    }
+
+    const range = maxDistance - minDistance;
+    const scaledDistance = distance - minDistance;
+    const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
+
+    return points;
+  }
+
   function reloadPage() {
     location.reload();
   }
 </script>
+</html>
