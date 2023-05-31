@@ -36,11 +36,18 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="button" onclick="startGame()">Click To Play</button>
-    <button class="button" onclick="restartGame()">Restart</button>
+    <button class="button" id="button" onclick="promptUsername()">Click To Play</button>
+    <button class="button" onclick="reloadPage()">Restart</button>
   </div>
   <div class="container">
-    <div class="board" id="board"></div>
+    <div class="board" id="board">
+      <div class="cell3" id="a" onclick="button('a')">a</div>
+      <div class="cell3" id="b" onclick="button('b')">b</div>
+      <div class="cell3" id="c" onclick="button('c')">c</div>
+      <div class="cell3" id="d" onclick="button('d')">d</div>
+      <div class="cell3" id="e" onclick="end()"></div> <!--smallest division-->
+      <canvas class="cell3" id="bigmap"></canvas>
+    </div>
     <div class="cell3" id="picture"></div>
     <div id="text"></div>
   </div>
@@ -53,7 +60,18 @@
       "ab": [702, 0],
       "ac": [0, 702],
       "ad": [702, 702],
-      // ...
+      "ba": [1404,0],
+      "bb": [2106,0],
+      "bc": [1404,702],
+      "bd": [2106,702],
+      "ca": [0,1404],
+      "cb": [702,1404],
+      "cc": [0,2106],
+      "cd": [702,2106],
+      "da": [1404,1404],
+      "db": [2106,1404],
+      "dc": [1404,2106],
+      "dd": [2106,2106]
     };
     this.places = [
       ["stoneranch", "dc", 502, 344],
