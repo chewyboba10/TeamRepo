@@ -1,10 +1,43 @@
+<!DOCTYPE html>
+<html>
 <head>
   <link rel="stylesheet" href="./geo/style.css" />
   <title>GeoGuesser</title>
+  <style>
+    body {
+      background-image: url('geo/earth.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      justify-content: center;
+      align-items: center;
+      background-color: #4169E1;
+      color: white;
+      padding: 12px 24px;
+      font-size: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #6495ED;
+    }
+  </style>
 </head>
 <body>
   <div class="button-container">
-  <button class="button" id="button" onclick="promptUsername()">Click To Play</button>
+    <button class="button" id="button" onclick="initialize()">Click To Play</button>
     <button class="button" onclick="reloadPage()">Restart</button>
   </div>
   <div class="container">
