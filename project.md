@@ -180,6 +180,10 @@
     ctx.lineWidth = 3;
     ctx.strokeStyle = "red";
     ctx.stroke();
+    localStorage.setItem("username", localStorage.getItem("username"));
+    localStorage.setItem("points", points);
+    // Redirect to another page
+    window.location.href = "leaderboard.html";
   }
   function calculatePoints(distance) {
     const basePoints = 1000;
@@ -197,8 +201,10 @@
     return points;
   }
   function reloadPage() {
-      localStorage.clear(); // Clear the stored data in local storage
-      location.reload();
+    // Clear the stored data in localStorage
+    localStorage.removeItem("username");
+    localStorage.removeItem("points");
+    location.reload();
   }
 </script>
 </html>
