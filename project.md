@@ -216,23 +216,39 @@
     clearInterval(timerInterval); // Stop the timer
   }
 
-  function calculatePoints(distance) {
-    const basePoints = 1000;
-    const maxDistance = 5000; // maximum distance for full points
-    const minDistance = 100; // minimum distance for any points
-    const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance
-    if (distance <= minDistance) {
-      return basePoints;
-    }
-    if (distance >= maxDistance) {
-      const penaltyPoints = Math.floor((distance - maxDistance) * penaltyFactor);
-      return basePoints - penaltyPoints;
-    }
+  function calculatePoints(distance, elapsedTime) {
+  const basePoints = 1000;
+  const maxDistance = 5000; // maximum distance for full points
+  const minDistance = 100; // minimum distance for any points
+  const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance
+  const maxTime = 300; // maximum time (in seconds) for full points
+  const timePenaltyFactor = 2; // factor to multiply the base points by for each second beyond maxTime
+
+  if (distance <= minDistance && elapsedTime <= maxTime) {
+    return basePoints;
+  }
+
+  let distancePoints = 0;
+  if (distance >= maxDistance) {
+    const penaltyPoints = Math.floor((distance - maxDistance) * penaltyFactor);
+    distancePoints = basePoints - penaltyPoints;
+  } else {
     const range = maxDistance - minDistance;
     const scaledDistance = distance - minDistance;
-    const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
-    return Math.floor(points / penaltyFactor);
+    distancePoints = basePoints - Math.floor((scaledDistance / range) * basePoints);
   }
+
+  let timePoints = 0;
+  if (elapsedTime > maxTime) {
+    const penaltyPoints = Math.floor((elapsedTime - maxTime) * timePenaltyFactor);
+    timePoints = basePoints - penaltyPoints;
+  } else {
+    timePoints = basePoints;
+  }
+
+  return Math.max(distancePoints, timePoints);
+}
+
 
   function unzoom() {
     if (document.getElementById("a").innerHTML.length == 1) { //if already zoomed out
