@@ -31,6 +31,7 @@
     }
     #text {
       color: #FFFFFF;
+      font-family: "Press Start 2P", sans-serif;
     }
   </style>
 </head>
