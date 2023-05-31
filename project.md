@@ -182,19 +182,24 @@
     localStorage.setItem("points", points);
   }
   function calculatePoints(distance) {
-    const basePoints = 1000;
-    const maxDistance = 5000; // maximum distance for full points
-    const minDistance = 100; // minimum distance for any points
-    if (distance <= minDistance) {
-      return basePoints;
-    }
-    if (distance >= maxDistance) {
-      return 0;
-    }
-    const range = maxDistance - minDistance;
-    const scaledDistance = distance - minDistance;
-    const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
-    return points;
+  const basePoints = 1000;
+  const maxDistance = 5000; // maximum distance for full points
+  const minDistance = 100; // minimum distance for any points
+  const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance
+  
+  if (distance <= minDistance) {
+    return basePoints;
+  }
+
+  if (distance >= maxDistance) {
+    return Math.floor(basePoints / penaltyFactor); // apply penalty for distances beyond maxDistance
+  }
+
+  const range = maxDistance - minDistance;
+  const scaledDistance = distance - minDistance;
+  const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
+  
+  return Math.floor(points / penaltyFactor); // apply penalty factor to points within the range
   }
   function unzoom() {
     if (document.getElementById("a").innerHTML.length == 1) { //if already zoomed out
