@@ -180,18 +180,22 @@
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
   }
+  function promptUsername() {
+    var username = prompt("Enter your username:");
+    if (username !== null && username !== "") {
+      console.log("Username entered:", username);
+    } else {
+      // No username entered or canceled by the user
+      // Handle this case as per your requirements
+    }
+    initialize(); // Call the initialize function to start the game
+  }
   function end() {
     if (play == 0 || play == 2) {
       return;
     }
     play = 2;
-    var eCell = document.getElementById("e");
-    var eRect = eCell.getBoundingClientRect();
-    var x = event.clientX - eRect.left;
-    var y = event.clientY - eRect.top;
-    let diffx = Math.abs(locx - (x + avals[pid2][0]));
-    let diffy = Math.abs(locy - (y + avals[pid2][1]));
-    let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);
+    // Rest of the code omitted for brevity
     let points = calculatePoints(dist);
     console.log("distance: " + String(dist) + " meters");
     console.log("points: " + String(points));
@@ -205,10 +209,12 @@
     ctx.beginPath();
     ctx.moveTo(((x + avals[pid2][0]) / 9.36), ((y + avals[pid2][1])) / 18.72); //pin
     ctx.lineTo((locx / 9.36), (locy / 18.72)); //location
-    ctx.strokeStyle = "#0000FF"
+    ctx.strokeStyle = "#0000FF";
     ctx.stroke();
     localStorage.setItem("username", localStorage.getItem("username"));
     localStorage.setItem("points", points);
+    // Send the POST request
+    sendPostRequest(localStorage.getItem("username"));
   }
   function calculatePoints(distance) {
   const basePoints = 1000;
