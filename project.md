@@ -8,6 +8,7 @@
       background-image: url('geo/earth.png');
       background-repeat: no-repeat;
       background-size: cover;
+      font-family: Arial, sans-serif;
     }
 
     .button-container {
@@ -17,8 +18,7 @@
     }
 
     .button {
-      justify-content: center;
-      align-items: center;
+      display: inline-block;
       background-color: #4169E1;
       color: white;
       padding: 12px 24px;
@@ -33,8 +33,54 @@
     .button:hover {
       background-color: #6495ED;
     }
-    #text {
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .board {
+      display: flex;
+      justify-content: space-between;
+      width: 400px;
+    }
+
+    .cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      font-size: 24px;
+      background-color: #FFFFFF;
+      border: 1px solid #CCCCCC;
+    }
+
+    .picture {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #CCCCCC;
+    }
+
+    .text {
+      margin-top: 20px;
+      font-size: 24px;
       color: #FFFFFF;
+    }
+
+    .bigmap {
+      margin-top: 20px;
+      width: 400px;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #CCCCCC;
     }
   </style>
 </head>
@@ -45,15 +91,15 @@
   </div>
   <div class="container">
     <div class="board" id="board">
-      <div class="cell3" id="a" onclick="button('a')">a</div>
-      <div class="cell3" id="b" onclick="button('b')">b</div>
-      <div class="cell3" id="c" onclick="button('c')">c</div>
-      <div class="cell3" id="d" onclick="button('d')">d</div>
-      <div class="cell3" id="e" onclick="pin()"></div> <!--smallest division-->
-      <canvas class="cell3" id="bigmap"></canvas>
+      <div class="cell" id="a" onclick="button('a')"></div>
+      <div class="cell" id="b" onclick="button('b')"></div>
+      <div class="cell" id="c" onclick="button('c')"></div>
+      <div class="cell" id="d" onclick="button('d')"></div>
+      <div class="cell" id="e" onclick="pin()"></div> <!--smallest division-->
+      <canvas class="cell" id="bigmap"></canvas>
     </div>
-    <div class="cell3" id="picture"></div>
-    <div id="text"></div>
+    <div class="picture" id="picture"></div>
+    <div class="text" id="text"></div>
   </div>
 </body>
 <script>
