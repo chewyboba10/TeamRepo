@@ -171,14 +171,12 @@
     document.getElementById("e").className = "cell3";
     document.getElementById("bigmap").className = "cell2";
     document.getElementById("bigmap").style.backgroundImage = "url('geo/bigmap.png')";
-    var c = document.getElementById("bigmap");
-    var ctx = c.getContext("2d");
+    let c = document.getElementById("bigmap");
+    let ctx = c.getContext("2d");
     ctx.beginPath();
-    ctx.arc(x + avals[pid2][0], y + avals[pid2][1], 5, 0, 2 * Math.PI);
-    ctx.fillStyle = "red";
-    ctx.fill();
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = "red";
+    ctx.moveTo(((x + avals[pid2][0]) / 9.36), ((y + avals[pid2][1])) / 18.72); //pin
+    ctx.lineTo((locx / 9.36), (locy / 18.72)); //location
+    ctx.strokeStyle = "#0000FF"
     ctx.stroke();
     localStorage.setItem("username", localStorage.getItem("username"));
     localStorage.setItem("points", points);
