@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Geoguessr Data</title>
@@ -51,7 +52,8 @@
                     scoreCell.textContent = entry.score;
                     row.appendChild(scoreCell);
                     var dateCell = document.createElement('td');
-                    dateCell.textContent = entry.game_datetime;
+                    var date = new Date(entry.game_datetime);
+                    dateCell.textContent = date.toLocaleDateString();
                     row.appendChild(dateCell);
                     tableBody.appendChild(row);
                 });
