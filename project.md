@@ -9,13 +9,11 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-
     .button-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
-
     .button {
       justify-content: center;
       align-items: center;
@@ -29,7 +27,6 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s ease;
     }
-
     .button:hover {
       background-color: #6495ED;
     }
@@ -88,7 +85,6 @@
   let locy = 0; //location y value
   let locname = "";
   let letters = ["a", "b", "c", "d"];
-
   function promptUsername() {
     var username = prompt("Enter your username:");
     if (username !== null && username !== "") {
@@ -102,7 +98,6 @@
     }
     initialize(); // Call the initialize function to start the game
   }
-
   function initialize() {
     play = 1;
     let i = 0;
@@ -127,7 +122,6 @@
     console.log(locx);
     console.log(locy);
   }
-
   function button(id) {
     if (play == 0 || play == 2) {
       return;
@@ -157,13 +151,7 @@
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
   }
-
-  function pin() {
-    var eCell = document.getElementById("e");
-    eCell.addEventListener("click", end);
-  }
-
-  function end(event) {
+  function end() {
     if (play == 0 || play == 2) {
       return;
     }
@@ -192,27 +180,21 @@
     ctx.strokeStyle = "red";
     ctx.stroke();
   }
-
   function calculatePoints(distance) {
     const basePoints = 1000;
     const maxDistance = 5000; // maximum distance for full points
     const minDistance = 100; // minimum distance for any points
-
     if (distance <= minDistance) {
       return basePoints;
     }
-
     if (distance >= maxDistance) {
       return 0;
     }
-
     const range = maxDistance - minDistance;
     const scaledDistance = distance - minDistance;
     const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
-
     return points;
   }
-
   function reloadPage() {
     location.reload();
   }
