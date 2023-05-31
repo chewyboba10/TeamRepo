@@ -75,7 +75,12 @@
     ["stoneranch", "dc", 502, 344],
     ["watertower", "ba", 456, 501],
     ["koala", "dd", 22, 456],
-    ["dnhsparking", "da", 167, 293]
+    ["dnhsparking", "da", 167, 293],
+    ["spreckles", "ca", 439, 391],
+    ["boysgirls", "dc", 427, 432],
+    ["intersection", "dc", 561, 92],
+    ["bball", "da", 511, 357],
+    ["playground", "da", 495, 300]
   ];
   let play = 0;
   let pid1 = ""; //first square pin id to zoom out
