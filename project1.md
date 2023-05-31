@@ -31,7 +31,7 @@
     }
     #text {
       color: #FFFFFF;
-      font-family: "Press Start 2P", sans-serif;
+      font-family: "Lucida Console", sans-serif;
     }
   </style>
 </head>
