@@ -182,8 +182,6 @@
     ctx.stroke();
     localStorage.setItem("username", localStorage.getItem("username"));
     localStorage.setItem("points", points);
-    // Redirect to another page
-    window.location.href = "leaderboard.html";
   }
   function calculatePoints(distance) {
     const basePoints = 1000;
