@@ -199,5 +199,6 @@
   function reloadPage() {
       localStorage.clear(); // Clear the stored data in local storage
       location.reload();
+  }
 </script>
 </html>
