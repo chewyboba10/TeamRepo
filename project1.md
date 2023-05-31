@@ -4,169 +4,189 @@
   <title>GeoGuesser</title>
   <style>
     body {
-      /* Background image and styles */
+      background-image: url('geo/earth.png');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
-    /* Other CSS styles */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .button {
+      justify-content: center;
+      align-items: center;
+      background-color: #4169E1;
+      color: white;
+      padding: 12px 24px;
+      font-size: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #6495ED;
+    }
+    #text {
+      color: #FFFFFF;
+    }
   </style>
 </head>
 <body>
   <div class="button-container">
-    <button class="button" id="button" onclick="promptUsername()">Click To Play</button>
-    <button class="button" onclick="reloadPage()">Restart</button>
+    <button class="button" onclick="startGame()">Click To Play</button>
+    <button class="button" onclick="restartGame()">Restart</button>
   </div>
   <div class="container">
-    <div class="board" id="board">
-      <!-- Board cells and divisions -->
-    </div>
+    <div class="board" id="board"></div>
     <div class="cell3" id="picture"></div>
     <div id="text"></div>
   </div>
-
+</body>
 <script>
-  let avals = {
-    // Coordinate values
-  };
-
-  let places = [
-    // Places and their coordinates
-  ];
-
-  let play = 0;
-  let pid1 = "";
-  let pid2 = "";
-  let locx = 0;
-  let locy = 0;
-  let locname = "";
-  let letters = ["a", "b", "c", "d"];
-
-  // Add event listener to listen for the "esc" key press
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-      zoomOut();
-    }
-  });
-
-  function promptUsername() {
-    var username = prompt("Enter your username:");
-    if (username !== null && username !== "") {
-      console.log("Username entered:", username);
-    } else {
-      // Handle no username entered or canceled by the user
-    }
-    initialize();
+  // Game constructor
+  function GeoGuesser() {
+    this.avals = {
+      "aa": [0, 0],
+      "ab": [702, 0],
+      "ac": [0, 702],
+      "ad": [702, 702],
+      // ...
+    };
+    this.places = [
+      ["stoneranch", "dc", 502, 344],
+      ["watertower", "ba", 456, 501],
+      ["koala", "dd", 22, 456],
+      ["dnhsparking", "da", 167, 293]
+    ];
+    this.play = 0;
+    this.pid1 = ""; //first square pin id to zoom out
+    this.pid2 = ""; // smallest square pin id
+    this.locx = 0; // location x value
+    this.locy = 0; //location y value
+    this.locname = "";
+    this.letters = ["a", "b", "c", "d"];
   }
-
-  function initialize() {
-    play = 1;
+  // Game initialization method
+  GeoGuesser.prototype.initialize = function() {
+    this.play = 1;
     let i = 0;
     while (i < 4) {
-      let val = "url('geo/" + letters[i] + ".png')";
-      document.getElementById(letters[i]).className = "cell1";
-      document.getElementById(letters[i]).style.backgroundImage = val;
+      let val = "url('geo/" + this.letters[i] + ".png')";
+      document.getElementById(this.letters[i]).className = "cell1";
+      document.getElementById(this.letters[i]).style.backgroundImage = val;
       i += 1;
     }
-
-    // Pick random place
-    let j = Math.floor(Math.random() * places.length);
-    locname = places[j][0];
-    let lid = places[j][1];
-    locx = places[j][2] + avals[lid][0];
-    locy = places[j][3] + avals[lid][1];
-
+    //pick random place
+    let j = Math.floor(Math.random() * this.places.length);
+    this.locname = this.places[j][0];
+    let lid = this.places[j][1];
+    this.locx = this.places[j][2] + this.avals[lid][0];
+    this.locy = this.places[j][3] + this.avals[lid][1];
     document.getElementById("picture").className = "cell4";
-    document.getElementById("picture").style.backgroundImage = "url('geo/" + locname + ".png')";
-    document.getElementById("button").remove();
-
-    // Log relevant information
-    console.log(document.getElementById("picture").style.backgroundImage);
-    console.log(locname);
-    console.log(lid);
-    console.log(locx);
-    console.log(locy);
-  }
-
-  function button(id) {
-    if (play == 0 || play == 2) {
+    document.getElementById("picture").style.backgroundImage = "url('geo/" + this.locname + ".png')";
+  };
+  // Game button click method
+  GeoGuesser.prototype.button = function(id) {
+    if (this.play == 0 || this.play == 2) {
       return;
     }
     let i = 0;
     let j = 0;
     if (document.getElementById("a").innerHTML.length == 1) {
-      pid1 = document.getElementById(String(id)).innerHTML;
-      console.log(pid1);
+      this.pid1 = document.getElementById(String(id)).innerHTML;
+      console.log(this.pid1);
       while (i < 4) {
-        document.getElementById(letters[i]).innerHTML = String(id) + letters[i];
+        document.getElementById(this.letters[i]).innerHTML = String(id) + this.letters[i];
         i += 1;
       }
       while (j < 4) {
-        document.getElementById(letters[j]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[j]).innerHTML) + ".png')";
-        console.log(document.getElementById(letters[j]).style.backgroundImage);
+        document.getElementById(this.letters[j]).style.backgroundImage = "url('geo/" + String(document.getElementById(this.letters[j]).innerHTML) + ".png')";
+        console.log(document.getElementById(this.letters[j]).style.backgroundImage);
         j += 1;
       }
     } else {
       let x = document.getElementById(String(id)).innerHTML;
-      pid2 = x;
+      this.pid2 = x; //pin id is set to smallest square division
       while (i < 4) {
-        document.getElementById(letters[i]).className = "cell3";
+        document.getElementById(this.letters[i]).className = "cell3";
         i += 1;
       }
       document.getElementById("e").className = "cell2";
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
-  }
-
-  function end() {
-    if (play == 0 || play == 2) {
+  };
+  // Game end method
+  GeoGuesser.prototype.end = function(event) {
+    if (this.play == 0 || this.play == 2) {
       return;
     }
-    play = 2;
-    // Rest of the end function
+    this.play = 2;
+    var eCell = document.getElementById("e");
+    var eRect = eCell.getBoundingClientRect();
+    var x = event.clientX - eRect.left;
+    var y = event.clientY - eRect.top;
+    let diffx = Math.abs(this.locx - (x + this.avals[this.pid2][0]));
+    let diffy = Math.abs(this.locy - (y + this.avals[this.pid2][1]));
+    let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);
+    let points = this.calculatePoints(dist);
+    console.log("distance: " + String(dist) + " meters");
+    console.log("points: " + String(points));
+    document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location. Points: " + String(points);
+    document.getElementById("e").className = "cell3";
+    document.getElementById("bigmap").className = "cell2";
+    document.getElementById("bigmap").style.backgroundImage = "url('geo/bigmap.png')";
+    var c = document.getElementById("bigmap");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(x + this.avals[this.pid2][0], y + this.avals[this.pid2][1], 5, 0, 2 * Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+    localStorage.setItem("username", localStorage.getItem("username"));
+    localStorage.setItem("points", points);
+    // Redirect to another page
+    window.location.href = "leaderboard.html";
+  };
+  // Game points calculation method
+  GeoGuesser.prototype.calculatePoints = function(distance) {
+    const basePoints = 1000;
+    const maxDistance = 5000; // maximum distance for full points
+    const minDistance = 100; // minimum distance for any points
+    if (distance <= minDistance) {
+      return basePoints;
+    }
+    if (distance >= maxDistance) {
+      return 0;
+    }
+    const range = maxDistance - minDistance;
+    const scaledDistance = distance - minDistance;
+    const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
+    return points;
+  };
+  // Game start method
+  function startGame() {
+    var username = prompt("Enter your username:");
+    if (username !== null && username !== "") {
+      localStorage.setItem("username", username);
+      console.log("Username entered:", username);
+    } else {
+      // No username entered or canceled by the user
+      // Handle this case as per your requirements
+    }
+    var game = new GeoGuesser();
+    game.initialize();
   }
-
-  function calculatePoints(distance) {
-    // Calculation logic
-  }
-
+  // Game reload method
   function reloadPage() {
+    // Clear the stored data in localStorage
+    localStorage.removeItem("username");
+    localStorage.removeItem("points");
     location.reload();
   }
-
-  function zoomOut() {
-    if (play === 0 || play === 2) {
-      return;
-    }
-
-    play = 0;
-    pid1 = "";
-    pid2 = "";
-    locx = 0;
-    locy = 0;
-    locname = "";
-
-    let i = 0;
-    while (i < 4) {
-      document.getElementById(letters[i]).innerHTML = letters[i];
-      document.getElementById(letters[i]).className = "cell3";
-      document.getElementById(letters[i]).style.backgroundImage = "";
-      i += 1;
-    }
-
-    document.getElementById("e").className = "cell3";
-    document.getElementById("e").style.backgroundImage = "";
-    document.getElementById("bigmap").className = "cell3";
-    document.getElementById("bigmap").style.backgroundImage = "";
-
-    document.getElementById("text").innerHTML = "";
-
-    let button = document.createElement("button");
-    button.className = "button";
-    button.innerHTML = "Click To Play";
-    button.onclick = promptUsername;
-
-    let buttonContainer = document.querySelector(".button-container");
-    buttonContainer.innerHTML = "";
-    buttonContainer.appendChild(button);
-  }
 </script>
-</body>
 </html>
