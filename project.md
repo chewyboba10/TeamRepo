@@ -33,32 +33,8 @@
     .button:hover {
       background-color: #6495ED;
     }
-    
     #text {
       color: #FFFFFF;
-    }
-    
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-    }
-    
-    .board {
-      display: flex;
-    }
-    
-    .cell3 {
-      border: 1px solid #FFFFFF;
-    }
-    
-    .cell3:not(#e) {
-      margin-right: 10px;
-    }
-    
-    #picture {
-      border: 1px solid #FFFFFF;
     }
   </style>
 </head>
