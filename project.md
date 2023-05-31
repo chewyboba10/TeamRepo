@@ -186,20 +186,16 @@
   const maxDistance = 5000; // maximum distance for full points
   const minDistance = 100; // minimum distance for any points
   const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance
-
   if (distance <= minDistance) {
     return basePoints;
   }
-
   if (distance >= maxDistance) {
     const penaltyPoints = Math.floor((distance - maxDistance) * penaltyFactor);
     return basePoints - penaltyPoints;
   }
-
   const range = maxDistance - minDistance;
   const scaledDistance = distance - minDistance;
   const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
-
   return Math.floor(points / penaltyFactor);
   }
   function unzoom() {
