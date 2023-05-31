@@ -49,7 +49,7 @@
       <div class="cell3" id="b" onclick="button('b')">b</div>
       <div class="cell3" id="c" onclick="button('c')">c</div>
       <div class="cell3" id="d" onclick="button('d')">d</div>
-      <div class="cell3" id="e" onclick="pin()"></div> <!--smallest division-->
+      <div class="cell3" id="e" onclick="end()"></div> <!--smallest division-->
       <canvas class="cell3" id="bigmap"></canvas>
     </div>
     <div class="cell3" id="picture"></div>
