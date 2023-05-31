@@ -50,6 +50,7 @@
     </div>
     <div class="cell3" id="picture"></div>
     <div id="text"></div>
+    <div id="timer"></div>
   </div>
 </body>
 <script>
@@ -89,6 +90,10 @@
   let locy = 0; //location y value
   let locname = "";
   let letters = ["a", "b", "c", "d"];
+  let startTime; // to store the start time
+  let timerInterval; // to store the interval
+  let timeLimit = 60; // time limit in seconds
+
   function promptUsername() {
     var username = prompt("Enter your username:");
     if (username !== null && username !== "") {
@@ -103,6 +108,7 @@
     }
     initialize(); // Call the initialize function to start the game
   }
+
   function initialize() {
     play = 1;
     let i = 0;
@@ -126,7 +132,27 @@
     console.log(lid);
     console.log(locx);
     console.log(locy);
+
+    // Start the timer
+    startTime = new Date().getTime();
+    timerInterval = setInterval(updateTimer, 1000);
   }
+
+  function updateTimer() {
+    const currentTime = new Date().getTime();
+    const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+    const remainingSeconds = Math.max(0, timeLimit - elapsedSeconds);
+    const minutes = Math.floor(remainingSeconds / 60);
+    const seconds = remainingSeconds % 60;
+    document.getElementById("timer").innerHTML = "Time: " + minutes + ":" + seconds.toString().padStart(2, "0");
+
+    if (remainingSeconds === 0) {
+      // Time is up, end the game
+      clearInterval(timerInterval);
+      end();
+    }
+  }
+
   function button(id) {
     if (play == 0 || play == 2) {
       return;
@@ -156,6 +182,7 @@
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
   }
+
   function end() {
     if (play == 0 || play == 2) {
       return;
@@ -185,56 +212,46 @@
     ctx.stroke();
     localStorage.setItem("username", localStorage.getItem("username"));
     localStorage.setItem("points", points);
+
+    clearInterval(timerInterval); // Stop the timer
   }
+
   function calculatePoints(distance) {
-  const basePoints = 1000;
-  const maxDistance = 5000; // maximum distance for full points
-  const minDistance = 100; // minimum distance for any points
-  const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance
-  if (distance <= minDistance) {
-    return basePoints;
+    const basePoints = 1000;
+    const maxDistance = 5000; // maximum distance for full points
+    const minDistance = 100; // minimum distance for any points
+    const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance
+    if (distance <= minDistance) {
+      return basePoints;
+    }
+    if (distance >= maxDistance) {
+      const penaltyPoints = Math.floor((distance - maxDistance) * penaltyFactor);
+      return basePoints - penaltyPoints;
+    }
+    const range = maxDistance - minDistance;
+    const scaledDistance = distance - minDistance;
+    const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
+    return Math.floor(points / penaltyFactor);
   }
-  if (distance >= maxDistance) {
-    const penaltyPoints = Math.floor((distance - maxDistance) * penaltyFactor);
-    return basePoints - penaltyPoints;
-  }
-  const range = maxDistance - minDistance;
-  const scaledDistance = distance - minDistance;
-  const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
-  return Math.floor(points / penaltyFactor);
-  }
+
   function unzoom() {
     if (document.getElementById("a").innerHTML.length == 1) { //if already zoomed out
       return
     }
-    else if (document.getElementById("a").className == "cell3") { //if enlarged fully
-      document.getElementById("e").className = "cell3"
-      i = 0
-      while (i < 4) {
-        document.getElementById(letters[i]).className = "cell1"
-        document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[i]).innerHTML) + ".png')"
-        i += 1
-      }
+    let i = 0;
+    let j = 0;
+    while (i < 4) {
+      document.getElementById(letters[i]).innerHTML = letters[i];
+      i += 1;
     }
-    else { //if enlarged once
-      i = 0
-      while (i < 4) {
-        document.getElementById(letters[i]).innerHTML = String(letters[i])
-        document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(letters[i]) + ".png')"
-        i += 1
-      }
+    while (j < 4) {
+      document.getElementById(letters[j]).style.backgroundImage = "url('geo/" + letters[j] + ".png')";
+      console.log(document.getElementById(letters[j]).style.backgroundImage);
+      j += 1;
     }
   }
-    document.onkeydown = function(evt) { //escape function
-      evt = evt || window.event;
-      if (evt.keyCode == 27) {
-          unzoom();
-      } 
-    };
+
   function reloadPage() {
-    // Clear the stored data in localStorage
-    localStorage.removeItem("username");
-    localStorage.removeItem("points");
     location.reload();
   }
 </script>
