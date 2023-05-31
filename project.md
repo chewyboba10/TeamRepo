@@ -3,37 +3,6 @@
   <link rel="stylesheet" href="./geo/style.css" />
   <title>GeoGuesser</title>
   <style>
-    /* Additional CSS */
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    #board {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .cell3 {
-      width: 100px;
-      height: 100px;
-      background-color: #ccc;
-      margin: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    #picture {
-      width: 200px;
-      height: 200px;
-      background-color: #ccc;
-      margin-bottom: 20px;
-    }
-    /* End of additional CSS */
-
     body {
       background-image: url('geo/earth.png');
       background-repeat: no-repeat;
@@ -83,8 +52,6 @@
     <div id="text"></div>
   </div>
 </body>
-</html>
-
 <script>
   let avals = {
     "aa": [0,0],
