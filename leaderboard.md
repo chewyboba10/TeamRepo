@@ -1,50 +1,6 @@
 <html>
 <head>
   <title>GeoGuessr Leaderboard</title>
-  <style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-        @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        th, td {
-            animation: slideIn 0.5s ease;
-        }
-        table {
-            animation: fadeIn 1s ease;
-        }
-  </style>
-
   <script>
     function sortTable(n) {
       var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
