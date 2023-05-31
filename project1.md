@@ -82,7 +82,7 @@
     this.play = 0;
     this.pid1 = ""; //first square pin id to zoom out
     this.pid2 = ""; // smallest square pin id
-    this.locx = 0; // location x value
+    this.locx = 0; // location xvalue
     this.locy = 0; //location y value
     this.locname = "";
     this.letters = ["a", "b", "c", "d"];
