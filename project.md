@@ -87,6 +87,7 @@
   function promptUsername() {
     var username = prompt("Enter your username:");
     if (username !== null && username !== "") {
+      localStorage.setItem("username", username);
       // Username is not empty and has been entered
       // Store the username in a variable or perform any desired actions
       // For example, you can log the username to the console
@@ -165,6 +166,7 @@
     let points = calculatePoints(dist);
     console.log("distance: " + String(dist) + " meters");
     console.log("points: " + String(points));
+    localStorage.setItem("points", points);
     document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location. Points: " + String(points);
     document.getElementById("e").className = "cell3";
     document.getElementById("bigmap").className = "cell2";
@@ -195,7 +197,7 @@
     return points;
   }
   function reloadPage() {
-    location.reload();
-  }
+      localStorage.clear(); // Clear the stored data in local storage
+      location.reload();
 </script>
 </html>
