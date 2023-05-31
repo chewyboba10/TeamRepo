@@ -33,6 +33,9 @@
     .button:hover {
       background-color: #6495ED;
     }
+    #text {
+      color: #eb6b34;
+    }
   </style>
 </head>
 <body>
