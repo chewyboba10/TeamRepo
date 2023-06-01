@@ -53,8 +53,6 @@
     <div id="text"></div>
   </div>
   <script>
-    let username = "";
-    let points = "";
     let avals = {
       "aa": [0,0],
       "ab": [702,0],
