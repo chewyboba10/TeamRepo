@@ -22,16 +22,19 @@
     <section class="description">
       <h1>Frequently asked questions</h1>
       <h2>What is this game?</h2>
-      <p> This is a geography game, in which you are dropped somewhere in the world in a street view panorama and your mission is to find clues and guess your location on the world map.</p>
+      <p> This is a geography game, in which you are given an image of somewhere within 4S Ranch or Del Sur and test either your observations skills or how well you know your high school's neighborhood.</p>
       <h2>How do I play?</h2>
       <h3>Step 1:</h3>
-      <p> Click the 'Start Game' button.</p>
+      <p> Click the 'Click to play' button.</p>
       <h3>Step 2:</h3>
-      <p> Look at the photo displayed on the right of the map and try to identify where it was taken.</p>
+      <p>The website will prompt you to enter a username before the game starts</p>
       <h3>Step 3:</h3>
-      <p> Click on a quadrant of the map where you think the photo was taken. You may only 'zoom' in 2 times before you are forced to guess a location with in that section of the map.</p>
+      <p>A map of 4S Ranch/Del Sur will be displayed on the left and there will be a photo of somewhere in 4S Ranch/Del Sur on the right. Look at the photo displayed try to identify where it was taken.</p>
       <h3>Step 4:</h3>
-      <p> Guess the location and see how you did. The game will display how far you were with a line on the map and the distance away from the actual location.</p>
+      <p> The initial map is split into 4 quadrants. Click on a quadrant of the map where you think the photo was taken. The map will zoom in on the quadrant that you click on. This step repeats one more time. To reiterate, you may only 'zoom' in 2 to guess a location with in that section of the map.</p>
+      <p>Note: You are able to go back to the larger map by clicking the esc key.</p>
+      <h3>Step 5:</h3>
+      <p> Guess the location and see how you did. The game will display how far you were with a line on the map and the distance away from the actual location. Based on that distance you will recieve a score, which will be saved and put into our leaderboard</p>
     </section>
   </main>
   
