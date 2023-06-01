@@ -4,7 +4,9 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
         } 
         th, td {
             padding: 8px;
