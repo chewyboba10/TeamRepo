@@ -25,7 +25,8 @@
     }
     /* Main Styles */
     main {
-      margin: 20px;
+      margin: 20px auto; /* Update margin to auto to center the box horizontally */
+      max-width: 800px; /* Add this line to set a maximum width for the box */
     }
     section.description {
       margin-bottom: 20px;
@@ -40,6 +41,7 @@
     h3 {
       color: #3354a7;
       margin-top: 20px;
+      text-align: left;
     }
     p {
       line-height: 1.5;
