@@ -232,31 +232,28 @@
       const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
       return Math.floor(points / penaltyFactor);
     }   
-    function unzoom() {
-      if (document.getElementById("a").innerHTML.length == 1) { //if already zoomed out
-        return
+  function unzoom() {
+    if (document.getElementById("a").innerHTML.length == 1) { //if already zoomed out
+      return
+    }
+    else if (document.getElementById("a").className == "cell3") { //if enlarged fully
+      document.getElementById("e").className = "cell3"
+      i = 0
+      while (i < 4) {
+        document.getElementById(letters[i]).className = "cell1"
+        document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[i]).innerHTML) + ".png')"
+        i += 1
       }
-      else if (document.getElementById("a").className == "cell3") { //if enlarged fully
-        document.getElementById("e").className = "cell3"
-        document.getElementById("bigmap").className = "cell3"
-        let i = 0;
-        while (i < 4) {
-          document.getElementById(letters[i]).className = "cell1"
-          i += 1
-        }
-        return
+    }
+    else { //if enlarged once
+      i = 0
+      while (i < 4) {
+        document.getElementById(letters[i]).innerHTML = String(letters[i])
+        document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(letters[i]) + ".png')"
+        i += 1
       }
-      else {
-        document.getElementById("e").className = "cell3"
-        document.getElementById("bigmap").className = "cell3"
-        let i = 0;
-        while (i < 4) {
-          document.getElementById(letters[i]).className = "cell2"
-          i += 1
-        }
-        return
-      }
-    }    
+    }
+  }
     document.onkeydown = function(evt) { //escape function
       evt = evt || window.event;
       if (evt.keyCode == 27) {
