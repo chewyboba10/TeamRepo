@@ -28,11 +28,11 @@
             cursor: pointer;
         }        
         th {
-            background-color: #3a2585;
+            background-color: #2943d1;
             color: white;
         }       
         th:hover {
-            background-color: #85a7ff;
+            background-color: #7289DA;
         }
         tr:hover {
             background-color: #f5f5f5;
