@@ -81,9 +81,5 @@
       <p> Guess the location and see how you did. The game will display how far you were with a line on the map and the distance away from the actual location. Based on that distance you will recieve a score, which will be saved and put into our leaderboard</p>
     </section>
   </main>
-  
-  <footer>
-    <p class="footer-text">© 2023 Neighborhood GeoGuesser. All rights reserved.</p>
-  </footer>
 </body>
 </html>

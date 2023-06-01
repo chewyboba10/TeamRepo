@@ -49,4 +49,7 @@
         <p>Game Developer</p>
     </div>
 </div>
+  <footer>
+    <p class="footer-text">ramen.png is from pngtree.com</p>
+  </footer>
 </section>
