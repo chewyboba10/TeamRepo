@@ -33,6 +33,7 @@
       color: #FFFFFF;
     }
   </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
   <div class="button-container">
@@ -51,177 +52,193 @@
     <div class="cell3" id="picture"></div>
     <div id="text"></div>
   </div>
-</body>
-<script>
-  let avals = {
-    "aa": [0,0],
-    "ab": [702,0],
-    "ac": [0,702],
-    "ad": [702,702],
-    "ba": [1404,0],
-    "bb": [2106,0],
-    "bc": [1404,702],
-    "bd": [2106,702],
-    "ca": [0,1404],
-    "cb": [702,1404],
-    "cc": [0,2106],
-    "cd": [702,2106],
-    "da": [1404,1404],
-    "db": [2106,1404],
-    "dc": [1404,2106],
-    "dd": [2106,2106]
-  };
-  let places = [
-    ["stoneranch", "dc", 502, 344],
-    ["watertower", "ba", 456, 501],
-    ["koala", "dd", 22, 456],
-    ["dnhsparking", "da", 167, 293],
-    ["spreckles", "ca", 439, 391],
-    ["boysgirls", "dc", 427, 432],
-    ["intersection", "dc", 561, 92],
-    ["bball", "da", 511, 357],
-    ["playground", "da", 495, 300]
-  ];
-  let play = 0;
-  let pid1 = ""; //first square pin id to zoom out
-  let pid2 = ""; // smallest square pin id
-  let locx = 0; // location x value
-  let locy = 0; //location y value
-  let locname = "";
-  let letters = ["a", "b", "c", "d"];
-  function promptUsername() {
-    var username = prompt("Enter your username:");
-    if (username !== null && username !== "") {
-      initialize(username);
-    }
-  }
-  function initialize(username) {
-    play = 1;
-    let i = 0;
-    while (i < 4) {
-      let val = "url('geo/" + letters[i] + ".png')";
-      document.getElementById(letters[i]).className = "cell1";
-      document.getElementById(letters[i]).style.backgroundImage = val;
-      i += 1;
-    }
-    //pick random place
-    let j = Math.floor(Math.random() * places.length);
-    locname = places[j][0];
-    let lid = places[j][1];
-    locx = places[j][2] + avals[lid][0];
-    locy = places[j][3] + avals[lid][1];
-    document.getElementById("picture").className = "cell4";
-    document.getElementById("picture").style.backgroundImage = "url('geo/" + locname + ".png')";
-    document.getElementById("button").remove();
-    console.log(document.getElementById("picture").style.backgroundImage);
-    console.log(locname);
-    console.log(lid);
-    console.log(locx);
-    console.log(locy);
-  }
-  function button(id) {
-    if (play == 0 || play == 2) {
-      return;
-    }
-    let i = 0;
-    let j = 0;
-    if (document.getElementById("a").innerHTML.length == 1) {
-      pid1 = document.getElementById(String(id)).innerHTML;
-      console.log(pid1);
-      while (i < 4) {
-        document.getElementById(letters[i]).innerHTML = String(id) + letters[i];
-        i += 1;
-      }
-      while (j < 4) {
-        document.getElementById(letters[j]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[j]).innerHTML) + ".png')";
-        console.log(document.getElementById(letters[j]).style.backgroundImage);
-        j += 1;
-      }
-    } else {
-      let x = document.getElementById(String(id)).innerHTML;
-      pid2 = x; //pin id is set to smallest square division
-      while (i < 4) {
-        document.getElementById(letters[i]).className = "cell3";
-        i += 1;
-      }
-      document.getElementById("e").className = "cell2";
-      document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
-    }
-  }
-  function end() {
-    if (play == 0 || play == 2) {
-      return;
-    }
-    play = 2;
-    var eCell = document.getElementById("e");
-    var eRect = eCell.getBoundingClientRect();
-    var x = event.clientX - eRect.left;
-    var y = event.clientY - eRect.top;
-    let diffx = Math.abs(locx - (x + avals[pid2][0]));
-    let diffy = Math.abs(locy - (y + avals[pid2][1]));
-    let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);
-    let points = calculatePoints(dist);
-    console.log("distance: " + String(dist) + " meters");
-    console.log("points: " + String(points));
-    document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location. Points: " + String(points);
-    document.getElementById("e").className = "cell3";
-    document.getElementById("bigmap").className = "cell2";
-    document.getElementById("bigmap").style.backgroundImage = "url('geo/bigmap.png')";
-    let c = document.getElementById("bigmap");
-    let ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.moveTo(((x + avals[pid2][0]) / 9.36), ((y + avals[pid2][1])) / 18.72); //pin
-    ctx.lineTo((locx / 9.36), (locy / 18.72)); //location
-    ctx.strokeStyle = "#0000FF"
-    ctx.stroke();
-  }
-  function calculatePoints(distance) {
-  const basePoints = 1000;
-  const maxDistance = 5000; // maximum distance for full points
-  const minDistance = 100; // minimum distance for any points
-  const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance
-  if (distance <= minDistance) {
-    return basePoints;
-  }
-  if (distance >= maxDistance) {
-    const penaltyPoints = Math.floor((distance - maxDistance) * penaltyFactor);
-    return basePoints - penaltyPoints;
-  }
-  const range = maxDistance - minDistance;
-  const scaledDistance = distance - minDistance;
-  const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
-  return Math.floor(points / penaltyFactor);
-  }
-  function unzoom() {
-    if (document.getElementById("a").innerHTML.length == 1) { //if already zoomed out
-      return
-    }
-    else if (document.getElementById("a").className == "cell3") { //if enlarged fully
-      document.getElementById("e").className = "cell3"
-      i = 0
-      while (i < 4) {
-        document.getElementById(letters[i]).className = "cell1"
-        document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[i]).innerHTML) + ".png')"
-        i += 1
-      }
-    }
-    else { //if enlarged once
-      i = 0
-      while (i < 4) {
-        document.getElementById(letters[i]).innerHTML = String(letters[i])
-        document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(letters[i]) + ".png')"
-        i += 1
-      }
-    }
-  }
-    document.onkeydown = function(evt) { //escape function
-      evt = evt || window.event;
-      if (evt.keyCode == 27) {
-          unzoom();
-      } 
+  <script>
+    let avals = {
+      "aa": [0,0],
+      "ab": [702,0],
+      "ac": [0,702],
+      "ad": [702,702],
+      "ba": [1404,0],
+      "bb": [2106,0],
+      "bc": [1404,702],
+      "bd": [2106,702],
+      "ca": [0,1404],
+      "cb": [702,1404],
+      "cc": [0,2106],
+      "cd": [702,2106],
+      "da": [1404,1404],
+      "db": [2106,1404],
+      "dc": [1404,2106],
+      "dd": [2106,2106]
     };
-  function reloadPage() {
-    location.reload();
-  }
-</script>
+    let places = [
+      ["stoneranch", "dc", 502, 344],
+      ["watertower", "ba", 456, 501],
+      ["koala", "dd", 22, 456],
+      ["dnhsparking", "da", 167, 293],
+      ["spreckles", "ca", 439, 391],
+      ["boysgirls", "dc", 427, 432],
+      ["intersection", "dc", 561, 92],
+      ["bball", "da", 511, 357],
+      ["playground", "da", 495, 300]
+    ];
+    let play = 0;
+    let pid1 = ""; //first square pin id to zoom out
+    let pid2 = ""; // smallest square pin id
+    let locx = 0; // location x value
+    let locy = 0; //location y value
+    let locname = "";
+    let letters = ["a", "b", "c", "d"];    
+    function promptUsername() {
+      var username = prompt("Enter your username:");
+      if (username !== null && username !== "") {
+        initialize(username);
+      }
+    }   
+    function initialize(username) {
+      play = 1;
+      let i = 0;
+      while (i < 4) {
+        let val = "url('geo/" + letters[i] + ".png')";
+        document.getElementById(letters[i]).className = "cell1";
+        document.getElementById(letters[i]).style.backgroundImage = val;
+        i += 1;
+      }
+      //pick random place
+      let j = Math.floor(Math.random() * places.length);
+      locname = places[j][0];
+      let lid = places[j][1];
+      locx = places[j][2] + avals[lid][0];
+      locy = places[j][3] + avals[lid][1];
+      document.getElementById("picture").className = "cell4";
+      document.getElementById("picture").style.backgroundImage = "url('geo/" + locname + ".png')";
+      document.getElementById("button").remove();
+      console.log(document.getElementById("picture").style.backgroundImage);
+      console.log(locname);
+      console.log(lid);
+      console.log(locx);
+      console.log(locy);
+    }    
+    function button(id) {
+      if (play == 0 || play == 2) {
+        return;
+      }
+      let i = 0;
+      let j = 0;
+      if (document.getElementById("a").innerHTML.length == 1) {
+        pid1 = document.getElementById(String(id)).innerHTML;
+        console.log(pid1);
+        while (i < 4) {
+          document.getElementById(letters[i]).innerHTML = String(id) + letters[i];
+          i += 1;
+        }
+        while (j < 4) {
+          document.getElementById(letters[j]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[j]).innerHTML) + ".png')";
+          console.log(document.getElementById(letters[j]).style.backgroundImage);
+          j += 1;
+        }
+      } else {
+        let x = document.getElementById(String(id)).innerHTML;
+        pid2 = x; //pin id is set to smallest square division
+        while (i < 4) {
+          document.getElementById(letters[i]).className = "cell3";
+          i += 1;
+        }
+        document.getElementById("e").className = "cell2";
+        document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
+      }
+    }    
+    function end() {
+      if (play == 0 || play == 2) {
+        return;
+      }
+      play = 2;
+      var eCell = document.getElementById("e");
+      var eRect = eCell.getBoundingClientRect();
+      var x = event.clientX - eRect.left;
+      var y = event.clientY - eRect.top;
+      let diffx = Math.abs(locx - (x + avals[pid2][0]));
+      let diffy = Math.abs(locy - (y + avals[pid2][1]));
+      let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);
+      let points = calculatePoints(dist);
+      console.log("distance: " + String(dist) + " meters");
+      console.log("points: " + String(points));
+      document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location. Points: " + String(points);
+      // Added code for sending post request to server with username and points
+      let data = {
+        username: username,
+        score: points
+      };
+      fetch('https://ramen-kj.duckdns.org/api/geoguessr/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => {
+          if (response.ok) {
+            console.log('Score submitted successfully');
+          } else {
+            console.log('Failed to submit score');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      document.getElementById("e").className = "cell3";
+      document.getElementById("bigmap").className = "cell2";
+      document.getElementById("bigmap").style.backgroundImage = "url('geo/bigmap.png')";
+      let c = document.getElementById("bigmap");
+      let ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.moveTo(((x + avals[pid2][0]) / 9.36), ((y + avals[pid2][1])) / 18.72); //pin
+      ctx.lineTo((locx / 9.36), (locy / 18.72)); //location
+      ctx.strokeStyle = "#0000FF"
+      ctx.stroke();
+    }    
+    function calculatePoints(distance) {
+      const basePoints = 1000;
+      const maxDistance = 5000; // maximum distance for full points
+      const minDistance = 100; // minimum distance for any points
+      const penaltyFactor = 1.5; // factor to multiply the base points by for each meter beyond maxDistance 
+      if (distance <= minDistance) {
+        return basePoints;
+      }
+      if (distance >= maxDistance) {
+        const penaltyPoints = Math.floor((distance - maxDistance) * penaltyFactor);
+        return basePoints - penaltyPoints;
+      }
+      const range = maxDistance - minDistance;
+      const scaledDistance = distance - minDistance;
+      const points = basePoints - Math.floor((scaledDistance / range) * basePoints);
+      return Math.floor(points / penaltyFactor);
+    }   
+    function unzoom() {
+      if (document.getElementById("a").innerHTML.length == 1) { //if already zoomed out
+        return
+      }
+      else if (document.getElementById("a").className == "cell3") { //if enlarged fully
+        document.getElementById("e").className = "cell3"
+        i = 0
+        while (i < 4) {
+          document.getElementById(letters[i]).className = "cell1"
+          document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[i]).innerHTML) + ".png')"
+          i += 1
+        }
+      }
+      else { //if enlarged once
+        i = 0
+        while (i < 4) {
+          document.getElementById(letters[i]).innerHTML = String(letters[i])
+          document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(letters[i]) + ".png')"
+          i += 1
+        }
+      }
+    }    
+    function reloadPage() {
+      location.reload();
+    }
+  </script>
+</body>
 </html>
