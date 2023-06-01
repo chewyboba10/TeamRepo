@@ -5,48 +5,52 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
     /* Global Styles */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-  }
-  /* Header Styles */
-  header {
-    background-color: #3354a7;
-    padding: 20px;
-    color: white;
-    text-align: center;
-  }
-  h1.title {
-    margin: 0;
-  }
-  /* Main Styles */
-  main {
-    margin: 20px;
-  }
-  section.description {
-    margin-bottom: 20px;
-  }
-  h2 {
-    margin-top: 0;
-  }
-  h1, h2, h3 {
-    color: #3354a7;
-  }
-  p {
-    line-height: 1.5;
-  }
-  /* Footer Styles */
-  footer {
-    background-color: #3354a7;
-    padding: 10px;
-    color: white;
-    text-align: center;
-  }
-  .footer-text {
-    margin: 0;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    /* Header Styles */
+    header {
+      background-color: #3354a7;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    h1.title {
+      margin: 0;
+    }
+    /* Main Styles */
+    main {
+      margin: 20px;
+    }
+    section.description {
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    h1, h2 {
+      color: #3354a7;
+    }
+    h3 {
+      color: #3354a7;
+      margin-top: 20px;
+    }
+    p {
+      line-height: 1.5;
+    }
+    /* Footer Styles */
+    footer {
+      background-color: #3354a7;
+      padding: 10px;
+      color: white;
+      text-align: center;
+    }
+    .footer-text {
+      margin: 0;
+    }
   </style>
 </head>
 <body>
