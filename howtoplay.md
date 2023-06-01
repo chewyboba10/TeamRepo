@@ -15,11 +15,11 @@
     header {
       background-color: #3354a7;
       padding: 20px;
-      color: white;
       text-align: center;
     }
     h1.title {
       margin: 0;
+      color: white; /* Add this line */
     }
     /* Main Styles */
     main {
@@ -31,7 +31,8 @@
     h2 {
       margin-top: 0;
     }
-    h1, h2 {
+    h1,
+    h2 {
       color: #3354a7;
     }
     h3 {
