@@ -257,6 +257,12 @@
         return
       }
     }    
+    document.onkeydown = function(evt) { //escape function
+      evt = evt || window.event;
+      if (evt.keyCode == 27) {
+          unzoom();
+      } 
+    };
     function reloadPage() {
       location.reload();
     }
