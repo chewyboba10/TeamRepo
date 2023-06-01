@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Neighborhood GeoGuesser</title>
+  <title>Neighborhood GeoGuessr</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
     /* Global Styles */
@@ -63,12 +63,12 @@
 </head>
 <body>
   <header>
-    <h1 class="title">Neighborhood GeoGuesser</h1>
+    <h1 class="title">Neighborhood GeoGuessr</h1>
   </header>
   
   <main>
     <section class="description">
-      <h2>Welcome to the 4s Ranch GeoGuesser Game!</h2>
+      <h2>Welcome to the 4s Ranch GeoGuessr Game!</h2>
       <p>Test your geography skills by identifying various locations from around 4s Ranch.</p>
     </section>
     <section class="description">

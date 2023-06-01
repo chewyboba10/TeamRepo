@@ -1,7 +1,7 @@
 <!-- Start of Website Content-->
 <div class="index-header">
     <h1>RAMEN KJ</h1>
-    <p>4S Ranch/Del Sur Geoguesser</p>
+    <p>4S Ranch/Del Sur Geoguessr</p>
 </div>
 
 <!--About Our Team-->
