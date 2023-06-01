@@ -53,6 +53,7 @@
     <div id="text"></div>
   </div>
   <script>
+    let username = "";
     let avals = {
       "aa": [0,0],
       "ab": [702,0],
@@ -90,7 +91,7 @@
     let locname = "";
     let letters = ["a", "b", "c", "d"];    
     function promptUsername() {
-      var username = prompt("Enter your username:");
+      username = prompt("Enter your username:");
       if (username !== null && username !== "") {
         initialize(username);
       }
