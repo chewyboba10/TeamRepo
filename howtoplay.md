@@ -10,6 +10,8 @@
       margin: 0;
       padding: 0;
       background-color: #f2f2f2;
+      border: 1px solid #ddd; /* Add this line for the border */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add this line for the shadow */
     }
     /* Header Styles */
     header {
