@@ -113,7 +113,7 @@
       locy = places[j][3] + avals[lid][1];
       document.getElementById("picture").className = "cell4";
       document.getElementById("picture").style.backgroundImage = "url('geo/" + locname + ".png')";
-      document.getElementById("button").remove();
+      document.getElementById("username").remove();
       console.log(document.getElementById("picture").style.backgroundImage);
       console.log(locname);
       console.log(lid);
