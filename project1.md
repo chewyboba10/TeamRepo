@@ -37,7 +37,7 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="button" onclick="promptUsername()">Click To Play</button>
+    <button class="button" id="username" onclick="promptUsername()">Click To Play</button>
     <button class="button" onclick="reloadPage()">Restart</button>
   </div>
   <div class="container">
@@ -53,6 +53,8 @@
     <div id="text"></div>
   </div>
   <script>
+    let username = "";
+    let points = "";
     let avals = {
       "aa": [0,0],
       "ab": [702,0],
@@ -147,7 +149,8 @@
         document.getElementById("e").className = "cell2";
         document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
       }
-    }    
+    }
+    let points = 0;
     function end() {
       if (play == 0 || play == 2) {
         return;
@@ -165,27 +168,6 @@
       console.log("points: " + String(points));
       document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location. Points: " + String(points);
       // Added code for sending post request to server with username and points
-      let data = {
-        username: username,
-        score: points
-      };
-      fetch('https://ramen-kj.duckdns.org/api/geoguessr/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(response => {
-          if (response.ok) {
-            console.log('Score submitted successfully');
-          } else {
-            console.log('Failed to submit score');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
       document.getElementById("e").className = "cell3";
       document.getElementById("bigmap").className = "cell2";
       document.getElementById("bigmap").style.backgroundImage = "url('geo/bigmap.png')";
@@ -196,6 +178,43 @@
       ctx.lineTo((locx / 9.36), (locy / 18.72)); //location
       ctx.strokeStyle = "#0000FF"
       ctx.stroke();
+      const url = "https://ramen-kj.duckdns.org/api/geoguessr/";
+      // Load games on page entry
+      function create_game(){
+        // Creating json for the game
+        const body = {
+            username: username,
+            score: points. 
+        };
+        //using the POST method
+        const requestOptions = {
+            method: 'POST',
+            body: JSON.stringify(body),
+            mode: 'cors',
+            cache: 'default',
+            //credentials: 'include',
+            headers: {
+                "content-type": "application/json",
+                'Authorization': 'Bearer my-token',
+            },
+        };
+        // URL for Create API
+        // Fetch API call to the database to create a new game
+        fetch(url, requestOptions)
+          .then(response => {
+            // trap error response from Web API
+            if (response.status !== 200) {
+              const errorMsg = 'Database create error: ' + response.status;
+              console.log(errorMsg);
+              return;
+            }
+            // response contains valid result
+            response.json().then(data => {
+                console.log(data);
+            })
+        })
+      }  
+      create_game();
     }    
     function calculatePoints(distance) {
       const basePoints = 1000;
@@ -220,20 +239,23 @@
       }
       else if (document.getElementById("a").className == "cell3") { //if enlarged fully
         document.getElementById("e").className = "cell3"
-        i = 0
+        document.getElementById("bigmap").className = "cell3"
+        let i = 0;
         while (i < 4) {
           document.getElementById(letters[i]).className = "cell1"
-          document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(document.getElementById(letters[i]).innerHTML) + ".png')"
           i += 1
         }
+        return
       }
-      else { //if enlarged once
-        i = 0
+      else {
+        document.getElementById("e").className = "cell3"
+        document.getElementById("bigmap").className = "cell3"
+        let i = 0;
         while (i < 4) {
-          document.getElementById(letters[i]).innerHTML = String(letters[i])
-          document.getElementById(letters[i]).style.backgroundImage = "url('geo/" + String(letters[i]) + ".png')"
+          document.getElementById(letters[i]).className = "cell2"
           i += 1
         }
+        return
       }
     }    
     function reloadPage() {
