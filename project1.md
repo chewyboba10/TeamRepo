@@ -38,7 +38,7 @@
 <body>
   <div class="button-container">
     <button class="button" id="username" onclick="promptUsername()">Click To Play</button>
-    <button class="button" onclick="reloadPage()">Restart</button>
+    <button class="button" id="button" onclick="reloadPage()">Restart</button>
   </div>
   <div class="container">
     <div class="board" id="board">
