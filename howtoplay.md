@@ -3,6 +3,51 @@
   <meta charset="UTF-8">
   <title>Neighborhood GeoGuesser</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* Global Styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  /* Header Styles */
+  header {
+    background-color: #3354a7;
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  h1.title {
+    margin: 0;
+  }
+  /* Main Styles */
+  main {
+    margin: 20px;
+  }
+  section.description {
+    margin-bottom: 20px;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  h1, h2, h3 {
+    color: #3354a7;
+  }
+  p {
+    line-height: 1.5;
+  }
+  /* Footer Styles */
+  footer {
+    background-color: #3354a7;
+    padding: 10px;
+    color: white;
+    text-align: center;
+  }
+  .footer-text {
+    margin: 0;
+  }
+  </style>
 </head>
 <body>
   <header>
@@ -13,11 +58,6 @@
     <section class="description">
       <h2>Welcome to the 4s Ranch GeoGuesser Game!</h2>
       <p>Test your geography skills by identifying various locations from around 4s Ranch.</p>
-    </section>
-    <section class="game-start">
-      <h2>Get Started!</h2>
-      <p>Click the "Start Game" button below to begin the challenge.</p>
-      <button class="start-button">Start Game</button>
     </section>
     <section class="description">
       <h1>Frequently asked questions</h1>
