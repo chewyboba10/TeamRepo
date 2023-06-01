@@ -47,7 +47,7 @@
                         } else if (column === 'score') {
                             return sortAscending ? a.score - b.score : b.score - a.score;
                         } else if (column === 'date') {
-                            return sortAscending ? new Date(a.game_datetime) - new Date(b.game_datetime) : new Date(b.game_datetime) - new Date(a.game_datetime);
+                            return sortAscending ? new Date(a.dos) - new Date(b.dos) : new Date(b.dos) - new Date(a.dos);
                         }
                         return 0;
                     });
@@ -62,7 +62,7 @@
                         scoreCell.textContent = entry.score;
                         row.appendChild(scoreCell);
                         var dateCell = document.createElement('td');
-                        var date = new Date(Date.parse(entry.game_datetime));
+                        var date = new Date(Date.parse(entry.dos));
                         dateCell.textContent = date.toLocaleDateString();
                         row.appendChild(dateCell);
                         tableBody.appendChild(row);
