@@ -36,7 +36,7 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="button" id="button" onclick="promptUsername()">Click To Play</button>
+    <button class="button" onclick="promptUsername()">Click To Play</button>
     <button class="button" onclick="reloadPage()">Restart</button>
   </div>
   <div class="container">
@@ -92,42 +92,10 @@
   function promptUsername() {
     var username = prompt("Enter your username:");
     if (username !== null && username !== "") {
-      sendPostRequest(username);
-      console.log("Username entered:", username);
-    } else {
-      // No username entered or canceled by the user
-      // Handle this case as per your requirements
+      initialize(username);
     }
-    initialize(); // Call the initialize function to start the game
   }
-  function sendPostRequest(username) {
-    // Prepare the data to be sent in the POST request
-    const data = {
-      username: username,
-      // Add any additional data you want to send
-    };
-    // Send the POST request
-    fetch('https://ramen-kj.duckdns.org/api/geoguessr/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => {
-      if (response.ok) {
-        // POST request successful
-        console.log('POST request successful');
-      } else {
-        // POST request failed
-        console.log('POST request failed');
-      }
-    })
-    .catch(error => {
-      console.log('Error sending POST request:', error);
-    });
-  }
-  function initialize() {
+  function initialize(username) {
     play = 1;
     let i = 0;
     while (i < 4) {
@@ -180,26 +148,21 @@
       document.getElementById("e").style.backgroundImage = "url('geo/r" + x + ".png')";
     }
   }
-  function promptUsername() {
-    var username = prompt("Enter your username:");
-    if (username !== null && username !== "") {
-      console.log("Username entered:", username);
-    } else {
-      // No username entered or canceled by the user
-      // Handle this case as per your requirements
-    }
-    initialize(); // Call the initialize function to start the game
-  }
   function end() {
     if (play == 0 || play == 2) {
       return;
     }
     play = 2;
-    // Rest of the code omitted for brevity
+    var eCell = document.getElementById("e");
+    var eRect = eCell.getBoundingClientRect();
+    var x = event.clientX - eRect.left;
+    var y = event.clientY - eRect.top;
+    let diffx = Math.abs(locx - (x + avals[pid2][0]));
+    let diffy = Math.abs(locy - (y + avals[pid2][1]));
+    let dist = Math.floor(Math.sqrt((diffx ** 2) + (diffy ** 2)) * 1.589);
     let points = calculatePoints(dist);
     console.log("distance: " + String(dist) + " meters");
     console.log("points: " + String(points));
-    localStorage.setItem("points", points);
     document.getElementById("text").innerHTML = "You were " + String(dist) + " meters from the location. Points: " + String(points);
     document.getElementById("e").className = "cell3";
     document.getElementById("bigmap").className = "cell2";
@@ -209,12 +172,8 @@
     ctx.beginPath();
     ctx.moveTo(((x + avals[pid2][0]) / 9.36), ((y + avals[pid2][1])) / 18.72); //pin
     ctx.lineTo((locx / 9.36), (locy / 18.72)); //location
-    ctx.strokeStyle = "#0000FF";
+    ctx.strokeStyle = "#0000FF"
     ctx.stroke();
-    localStorage.setItem("username", localStorage.getItem("username"));
-    localStorage.setItem("points", points);
-    // Send the POST request
-    sendPostRequest(localStorage.getItem("username"));
   }
   function calculatePoints(distance) {
   const basePoints = 1000;
@@ -262,9 +221,6 @@
       } 
     };
   function reloadPage() {
-    // Clear the stored data in localStorage
-    localStorage.removeItem("username");
-    localStorage.removeItem("points");
     location.reload();
   }
 </script>
