@@ -32,6 +32,7 @@
       margin-bottom: 20px;
       border: 1px solid #ddd; /* Add this line for the border */
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add this line for the shadow */
+      padding: 20px; /* Add this line for the padding */
     }
     h2 {
       margin-top: 0;
