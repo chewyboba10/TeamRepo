@@ -13,8 +13,6 @@
         h1 {
             text-align: center;
             padding: 20px;
-            background-color: #4169E1;
-            color: white;
             margin: 0;
         }        
         /* Table Styles */
@@ -30,11 +28,11 @@
             cursor: pointer;
         }        
         th {
-            background-color: #4169E1;
+            background-color: #3a2585;
             color: white;
         }       
         th:hover {
-            background-color: #6495ED;
+            background-color: #85a7ff;
         }
         tr:hover {
             background-color: #f5f5f5;
