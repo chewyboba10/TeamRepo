@@ -72,7 +72,7 @@
       <p>Test your geography skills by identifying various locations from around 4s Ranch.</p>
     </section>
     <section class="description">
-      <h1>Frequently asked questions</h1>
+      <h1>FAQs</h1>
       <h2>What is this game?</h2>
       <p> This is a geography game, in which you are given an image of somewhere within 4S Ranch or Del Sur and test either your observations skills or how well you know your high school's neighborhood.</p>
       <h2>How do I play?</h2>
