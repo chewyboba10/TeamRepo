@@ -38,8 +38,8 @@
                     if (a.username > b.username) return 1;
                     if (a.score < b.score) return -1;
                     if (a.score > b.score) return 1;
-                    if (a.game_datetime < b.game_datetime) return -1;
-                    if (a.game_datetime > b.game_datetime) return 1;
+                    if (a.dos < b.dos) return -1;
+                    if (a.dos > b.dos) return 1;
                     return 0;
                 });     
                 // Display the sorted data in the table
@@ -53,7 +53,7 @@
                     scoreCell.textContent = entry.score;
                     row.appendChild(scoreCell);
                     var dateCell = document.createElement('td');
-                    var date = new Date(Date.parse(entry.game_datetime));
+                    var date = new Date(Date.parse(entry.dos));
                     dateCell.textContent = date.toLocaleDateString();
                     row.appendChild(dateCell);
                     tableBody.appendChild(row);
