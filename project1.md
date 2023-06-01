@@ -184,7 +184,7 @@
         // Creating json for the game
         const body = {
             username: username,
-            score: points. 
+            score: points
         };
         //using the POST method
         const requestOptions = {
