@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Geoguessr Data</title>
@@ -9,15 +8,13 @@
             margin: 0;
             padding: 0;
             background-color: #f2f2f2;
-        }
-        
+        }        
         /* Header Styles */
         h1 {
             text-align: center;
             padding: 20px;
             margin: 0;
-        }
-        
+        }        
         /* Table Styles */
         table {
             border-collapse: collapse;
@@ -25,44 +22,50 @@
             margin-left: auto;
             margin-right: auto;
             margin-top: 20px;
-        }
-        
+        }        
         th, td {
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
             cursor: pointer;
-        }
-        
+        }        
         th {
             background-color: #3354a7;
             color: white;
-        }
-        
+        }        
         th:hover {
             background-color: #4e7ac9;
-        }
-        
+        }       
         tr:hover {
             background-color: #f5f5f5;
-        }
-        
+        }        
         .pagination {
             text-align: center;
             margin-top: 20px;
-        }
-        
+        }       
         .pagination a {
             display: inline-block;
             padding: 8px 16px;
             text-decoration: none;
             color: #3354a7;
             border: 1px solid #ddd;
-        }
-        
+        }        
         .pagination a.active {
             background-color: #3354a7;
             color: white;
+        }        
+        /* Set fixed widths for table columns */
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 30%;
+        }        
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 20%;
+        }        
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 50%;
         }
     </style>
 </head>
