@@ -108,78 +108,6 @@ function signOut() {
 </body>
 
 <script>
-    function updateDifficulty(difficulty) {
-        document.cookie = "difficulty=" + difficulty + ";" // replace "score" with an input function that retrieves difficulty
-    }
-
-    function resetScoreCookie() {
-        document.cookie = "total=0;"
-    }
-
-    function gameRedirect(difficulty) {
-        updateDifficulty(difficulty);
-        resetScoreCookie()
-        window.location.href = './game.html';
-    }
-    
-    function difficulty(option) {
-        if (option == "prompt") {
-            document.getElementById("difficultyPrompt").style.opacity = "1";
-            document.getElementById("difficultyPrompt").style.pointerEvents = "all";
-            document.getElementById("difficultyEasy").style.opacity = "0.75";
-            document.getElementById("difficultyEasy").style.pointerEvents = "all";
-            document.getElementById("difficultyMedium").style.opacity = "0.75";
-            document.getElementById("difficultyMedium").style.pointerEvents = "all";
-            document.getElementById("difficultyHard").style.opacity = "0.75";
-            document.getElementById("difficultyHard").style.pointerEvents = "all";
-            document.getElementById("difficultyClose").style.opacity = "0.75";
-            document.getElementById("difficultyClose").style.pointerEvents = "all";
-            document.getElementById("logo").style.pointerEvents = "none";
-            document.getElementById("profile").style.pointerEvents = "none";
-            document.getElementById("photos1").style.pointerEvents = "none";
-            document.getElementById("photos2").style.pointerEvents = "none";
-            document.getElementById("signOut").style.pointerEvents = "none";
-            document.getElementById("logo").style.filter = "blur(4px)";
-            document.getElementById("profile").style.filter = "blur(4px)";
-            document.getElementById("photos1").style.filter = "blur(4px)";
-            document.getElementById("photos2").style.filter = "blur(4px)";
-            document.getElementById("text1").style.filter = "blur(4px)";
-            document.getElementById("text2").style.filter = "blur(4px)";
-            document.getElementById("text3").style.filter = "blur(4px)";
-            document.getElementById("text4").style.filter = "blur(4px)";
-            document.getElementById("text5").style.filter = "blur(4px)";
-            document.getElementById("signOut").style.filter = "blur(4px)";
-        } else if (option == "no") {
-            document.getElementById("difficultyPrompt").style.opacity = "0";
-            document.getElementById("difficultyPrompt").style.pointerEvents = "none";
-            document.getElementById("difficultyEasy").style.opacity = "0";
-            document.getElementById("difficultyEasy").style.pointerEvents = "none";
-            document.getElementById("difficultyMedium").style.opacity = "0";
-            document.getElementById("difficultyMedium").style.pointerEvents = "none";
-            document.getElementById("difficultyHard").style.opacity = "0";
-            document.getElementById("difficultyHard").style.pointerEvents = "none";
-            document.getElementById("difficultyClose").style.opacity = "0";
-            document.getElementById("difficultyClose").style.pointerEvents = "none";
-
-            document.getElementById("logo").style.pointerEvents = "all";
-            document.getElementById("profile").style.pointerEvents = "all";
-            document.getElementById("photos1").style.pointerEvents = "all";
-            document.getElementById("photos2").style.pointerEvents = "all";
-            document.getElementById("signOut").style.pointerEvents = "all";
-            document.getElementById("logo").style.filter = "blur(0px)";
-            document.getElementById("profile").style.filter = "blur(0px)";
-            document.getElementById("photos1").style.filter = "blur(0px)";
-            document.getElementById("photos2").style.filter = "blur(0px)";
-            document.getElementById("text1").style.filter = "blur(0px)";
-            document.getElementById("text2").style.filter = "blur(0px)";
-            document.getElementById("text3").style.filter = "blur(0px)";
-            document.getElementById("text4").style.filter = "blur(0px)";
-            document.getElementById("text5").style.filter = "blur(0px)";
-            document.getElementById("signOut").style.filter = "blur(0px)";
-        }
-    }
-</script>
-<script>
     var round = 1;
     // resizes position
     function dynamic_Positioning(idName, origionalTop, origionalLeft, size) {
@@ -259,7 +187,6 @@ function signOut() {
         dynamic_imgSize('difficultyClose', 21, 21, 336, 1084, size)
     }
 </script>
-
 
 </html>
 
